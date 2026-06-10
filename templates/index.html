@@ -50,17 +50,44 @@
                 
                 <div class="glass-grid fade-up">
                     <div class="glass-card hover-target">
-                        <div style="font-size: 2rem; margin-bottom: 20px;">⚡</div>
+                        <div class="cube-container">
+                            <div class="cube">
+                                <div class="cube-face front">⚡</div>
+                                <div class="cube-face back"></div>
+                                <div class="cube-face right"></div>
+                                <div class="cube-face left"></div>
+                                <div class="cube-face top"></div>
+                                <div class="cube-face bottom"></div>
+                            </div>
+                        </div>
                         <h3>Performace Bruta</h3>
                         <p>Nossos sistemas são construídos em Python puro e arquitetura moderna. Velocidade instantânea que impede o seu cliente de abandonar a página.</p>
                     </div>
                     <div class="glass-card hover-target">
-                        <div style="font-size: 2rem; margin-bottom: 20px;">🧠</div>
+                        <div class="cube-container">
+                            <div class="cube">
+                                <div class="cube-face front">🧠</div>
+                                <div class="cube-face back"></div>
+                                <div class="cube-face right"></div>
+                                <div class="cube-face left"></div>
+                                <div class="cube-face top"></div>
+                                <div class="cube-face bottom"></div>
+                            </div>
+                        </div>
                         <h3>UX/UI Design</h3>
                         <p>Aplicamos psicologia cognitiva no design. Cada botão, cada cor e cada espaçamento é milimetricamente calculado para gerar vendas.</p>
                     </div>
                     <div class="glass-card hover-target">
-                        <div style="font-size: 2rem; margin-bottom: 20px;">⚙️</div>
+                        <div class="cube-container">
+                            <div class="cube">
+                                <div class="cube-face front">⚙️</div>
+                                <div class="cube-face back"></div>
+                                <div class="cube-face right"></div>
+                                <div class="cube-face left"></div>
+                                <div class="cube-face top"></div>
+                                <div class="cube-face bottom"></div>
+                            </div>
+                        </div>
                         <h3>SaaS & Agendamentos</h3>
                         <p>Esqueça sistemas engessados. Criamos plataformas exclusivas de agendamento e painéis administrativos para gerenciar sua empresa no automático.</p>
                     </div>
@@ -69,30 +96,69 @@
         </section>
 
         <!-- 3. SHOWCASE/PORTFOLIO SECTION -->
-        <section class="snap-section" id="portfolio">
-            <div class="bg-grid" style="opacity: 0.3;"></div>
-            <div class="showcase-container fade-up" style="z-index: 1;">
+        <section class="snap-section" id="portfolio" style="background: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover fixed;">
+            <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(180deg, #020202 0%, rgba(2,2,2,0.85) 50%, #020202 100%);"></div>
+            
+            <div class="showcase-container fade-up" style="z-index: 1; position: relative;">
                 <h2 style="font-size: 3vw;">VEJA A MÁQUINA<br>EM <span>PRODUÇÃO</span></h2>
-                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    Acesse um dos nossos motores de agendamento operando ao vivo. Um ecossistema completo desenhado para a Imperium Barber, contendo painel administrativo, agendamento de clientes e estética implacável.
+                <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto 10px auto;">
+                    Acesse um dos nossos motores de agendamento operando ao vivo.
                 </p>
-                <a href="https://imperium-barber-engine.onrender.com" target="_blank" class="btn-glow hover-target" style="padding: 15px 40px; font-size: 1.1rem; border-width: 2px;">ACESSAR IMPERIUM BARBER ENGINE</a>
+                
+                <div class="devices-showcase hover-target">
+                    <!-- CSS Tablet -->
+                    <div class="css-tablet">
+                        <div class="css-tablet-screen">
+                            <div class="dash-header"></div>
+                            <div class="dash-grid">
+                                <div class="dash-box"></div>
+                                <div class="dash-box"></div>
+                                <div class="dash-box"></div>
+                                <div class="dash-box"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CSS Phone -->
+                    <div class="css-phone">
+                        <div class="phone-notch"></div>
+                        <div class="css-phone-screen">
+                            <div class="phone-box" style="height: 30px;"></div>
+                            <div class="phone-box"></div>
+                            <div class="phone-box"></div>
+                            <div class="phone-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://imperium-barber-engine.onrender.com" target="_blank" class="btn-glow hover-target" style="padding: 15px 40px; font-size: 1.1rem; border-width: 2px; background: #020202;">ACESSAR IMPERIUM BARBER ENGINE</a>
             </div>
         </section>
 
         <!-- 4. CONTATO SECTION -->
         <section class="snap-section" id="contato">
             <div class="bg-grid" style="opacity: 0.5;"></div>
-            <div style="z-index: 1; width: 100%; max-width: 600px; margin: 0 auto; text-align: center;">
-                <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 10px;" class="fade-up">INICIAR PROTOCOLO</h2>
-                <p style="color: var(--text-muted); margin-bottom: 40px;" class="fade-up">Preencha os dados e nossa engenharia entrará em contato.</p>
-                
-                <form id="lead-form" class="fade-up" style="background: rgba(255,255,255,0.02); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); text-align: left;">
-                    <input type="text" id="nome" class="form-input hover-target" required placeholder="Seu Nome Completo">
-                    <input type="text" id="empresa" class="form-input hover-target" required placeholder="Nome da Empresa">
-                    <input type="text" id="telefone" class="form-input hover-target" required placeholder="WhatsApp (DDD)">
-                    <button type="submit" class="btn-glow hover-target" style="width: 100%; border: none; padding: 20px; font-size: 1rem; background: rgba(28,111,248,0.1); border: 1px solid var(--accent-blue);">SOLICITAR ORÇAMENTO</button>
-                </form>
+            
+            <div class="contact-split fade-up" style="z-index: 1; width: 100%; max-width: 1100px; margin: 0 auto;">
+                <div class="contact-image-area">
+                    <div class="contact-image-overlay"></div>
+                </div>
+                <div class="contact-form-area">
+                    <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 10px;">AUDITORIA DE SISTEMA</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 40px;">Solicite uma análise técnica e descubra como podemos automatizar sua empresa.</p>
+                    
+                    <form id="lead-form">
+                        <label style="display: block; font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 5px; font-family: var(--font-heading);">NOME DO RESPONSÁVEL</label>
+                        <input type="text" id="nome" class="form-input hover-target" required placeholder="Ex: João Silva">
+                        
+                        <label style="display: block; font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 5px; font-family: var(--font-heading);">EMPRESA / PROJETO</label>
+                        <input type="text" id="empresa" class="form-input hover-target" required placeholder="Ex: Barbearia Elite">
+                        
+                        <label style="display: block; font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 5px; font-family: var(--font-heading);">WHATSAPP DIRETO</label>
+                        <input type="text" id="telefone" class="form-input hover-target" required placeholder="DDD + Número">
+                        
+                        <button type="submit" class="btn-glow hover-target" style="width: 100%; border: none; padding: 20px; font-size: 1rem; background: rgba(28,111,248,0.1); border: 1px solid var(--accent-blue); margin-top: 10px;">INICIAR PROTOCOLO DE ANÁLISE</button>
+                    </form>
+                </div>
             </div>
             
             <footer style="position: absolute; bottom: 20px; width: 100%; text-align: center; color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-heading);">

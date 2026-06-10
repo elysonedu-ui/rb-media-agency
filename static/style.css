@@ -253,3 +253,159 @@ html, body {
     .nav-links { display: none; } /* Oculta menu no mobile para simplificar */
     .snap-section { padding: 0 5%; }
 }
+
+/* --- 3D HOLOGRAPHIC CUBES --- */
+.cube-container {
+    width: 60px;
+    height: 60px;
+    perspective: 800px;
+    margin: 0 auto 30px auto;
+}
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: cube-spin 8s infinite linear;
+}
+.cube-face {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: rgba(28, 111, 248, 0.05);
+    border: 1px solid rgba(28, 111, 248, 0.4);
+    box-shadow: inset 0 0 15px rgba(28, 111, 248, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--accent-blue);
+    backdrop-filter: blur(2px);
+}
+.cube-face.front  { transform: translateZ(30px); }
+.cube-face.back   { transform: rotateY(180deg) translateZ(30px); }
+.cube-face.right  { transform: rotateY(90deg) translateZ(30px); }
+.cube-face.left   { transform: rotateY(-90deg) translateZ(30px); }
+.cube-face.top    { transform: rotateX(90deg) translateZ(30px); }
+.cube-face.bottom { transform: rotateX(-90deg) translateZ(30px); }
+
+@keyframes cube-spin {
+    0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+.glass-card:hover .cube {
+    animation-duration: 2s;
+}
+
+/* --- DEVICES CSS MOCKUPS --- */
+.devices-showcase {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.css-tablet {
+    width: 500px;
+    height: 350px;
+    background: #0a0a0a;
+    border-radius: 20px;
+    border: 12px solid #1a1a1a;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.9), 0 0 40px rgba(28,111,248,0.15);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-65%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+.css-tablet-screen {
+    flex: 1;
+    background: linear-gradient(135deg, #050505, #001533);
+    position: relative;
+    padding: 30px;
+}
+.dash-header { width: 100%; height: 25px; background: rgba(28,111,248,0.1); border-radius: 4px; margin-bottom: 20px; border: 1px solid rgba(28,111,248,0.2); }
+.dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.dash-box { height: 80px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; }
+.dash-box:nth-child(1) { border-color: rgba(28,111,248,0.3); box-shadow: inset 0 0 10px rgba(28,111,248,0.1); }
+
+.css-phone {
+    width: 160px;
+    height: 320px;
+    background: #0a0a0a;
+    border-radius: 30px;
+    border: 8px solid #222;
+    box-shadow: -30px 30px 60px rgba(0,0,0,0.9);
+    position: absolute;
+    right: 50%;
+    transform: translateX(110%) translateY(30px);
+    overflow: hidden;
+    z-index: 2;
+    animation: float-device 6s ease-in-out infinite alternate;
+}
+.css-phone-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #050505, #001a4d);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.phone-notch {
+    width: 50px; height: 15px; background: #222; border-radius: 0 0 10px 10px; margin: -15px auto 15px auto;
+}
+.phone-box {
+    width: 100%; height: 50px; background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);
+}
+
+@keyframes float-device {
+    0% { transform: translateX(110%) translateY(30px); }
+    100% { transform: translateX(110%) translateY(-10px); }
+}
+
+/* --- HUMANIZED CONTACT SECTION --- */
+.contact-split {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 0;
+    align-items: stretch;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 30px;
+    overflow: hidden;
+}
+.contact-image-area {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    background: url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80") center/cover no-repeat;
+    position: relative;
+}
+.contact-image-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(2,2,2,0.1), #020202);
+}
+.contact-form-area {
+    padding: 60px 50px;
+    text-align: left;
+    background: #020202;
+}
+
+@media (max-width: 900px) {
+    .css-tablet { width: 300px; height: 210px; transform: translateX(-50%); border-width: 8px; }
+    .css-phone { width: 100px; height: 200px; transform: translateX(80%) translateY(20px); border-width: 5px; border-radius: 18px;}
+    .devices-showcase { height: 280px; }
+    .contact-split { grid-template-columns: 1fr; }
+    .contact-image-area { min-height: 250px; }
+    .contact-image-overlay { background: linear-gradient(to bottom, rgba(2,2,2,0.1), #020202); }
+    .contact-form-area { padding: 40px 20px; }
+}
+
