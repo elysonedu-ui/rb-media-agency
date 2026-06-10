@@ -111,7 +111,56 @@
             </div>
         </section>
 
-        <!-- 4. CONTATO SECTION -->
+        <!-- 4. FAQ SECTION -->
+        <section class="snap-section" id="faq">
+            <div class="bg-grid" style="opacity: 0.3;"></div>
+            <div style="z-index: 1; width: 100%; text-align: center; margin-bottom: 50px;">
+                <h2 style="font-size: 3vw;" class="fade-up">INTELIGÊNCIA <br><span>OPERACIONAL</span></h2>
+                <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;" class="fade-up">
+                    Respostas diretas para as dúvidas mais frequentes de nossos parceiros de alto nível.
+                </p>
+            </div>
+            
+            <div class="faq-container fade-up" style="z-index: 1;">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Vocês fazem apenas "sites institucionais"? <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Não.</strong> Nós não criamos panfletos digitais. Nossa especialidade é Engenharia de Software focada em conversão. Criamos Ecossistemas completos: plataformas de agendamento (SaaS), integrações de Inteligência Artificial para WhatsApp e Dashboards financeiros robustos.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Qual é o prazo médio de entrega de um sistema? <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Tempo é dinheiro. Utilizamos metodologias ágeis e arquiteturas modernas (Python/React) para garantir entregas estruturais em um prazo médio de <strong>15 a 30 dias</strong>, dependendo da complexidade das integrações (ex: robôs de IA ou automação de pagamentos).</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Já tenho equipe de marketing. Vocês a substituem? <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>De forma alguma.</strong> Nós somos o "braço armado" da tecnologia. Se você já tem quem faça anúncios e crie artes, nós fornecemos a <strong>Máquina de Engenharia</strong> (sites ultra-rápidos, SEO Técnico e Funis automatizados) para que a sua equipe atual multiplique as vendas por 10x.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Os sistemas são otimizados para Mobile (Celular)? <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Mais do que isso. Nossos sistemas são desenvolvidos sob o conceito <em>Mobile-First</em>. Sabendo que 85% do tráfego de alta conversão vem de smartphones, nós aplicamos Psicologia Cognitiva no design para que cada botão esteja milimetricamente posicionado no polegar do seu cliente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CONTATO SECTION -->
         <section class="snap-section" id="contato">
             <div class="bg-grid" style="opacity: 0.5;"></div>
             
@@ -237,6 +286,22 @@
 
         document.querySelectorAll('.fade-up').forEach((el) => {
             observer.observe(el);
+        });
+
+        // --- FAQ ACCORDION LOGIC ---
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const btn = item.querySelector('.faq-question');
+            btn.addEventListener('click', () => {
+                // Fechar outros abertos
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle o atual
+                item.classList.toggle('active');
+            });
         });
 
         // --- FORM SAVE TO SPREADSHEET (CSV) ---
