@@ -373,8 +373,8 @@
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(payload)
             }).then(() => {
-                // Redireciona pro WhatsApp com os dados (Backup Anti-Perda do Render)
-                const msg = encodeURIComponent(`🚨 *NOVO LEAD - AUDITORIA DE SISTEMA* 🚨\n\n*Nome:* ${payload.nome}\n*Empresa:* ${payload.empresa}\n*WhatsApp:* ${payload.telefone}\n\nVim pelo site e quero iniciar um projeto!`);
+                // Redireciona pro WhatsApp com os dados do ponto de vista do CLIENTE
+                const msg = encodeURIComponent(`Olá equipe da RB Media! Acabei de solicitar a Auditoria de Sistema lá no site.\n\nMe chamo ${payload.nome}, da empresa ${payload.empresa}.\n\nPodemos falar sobre o meu projeto?`);
                 window.open(`https://wa.me/5511914433981?text=${msg}`, '_blank');
                 e.target.reset();
             });
