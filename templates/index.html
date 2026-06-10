@@ -209,14 +209,22 @@
     <script>
         // --- PRELOADER & PAGE TRANSITIONS ---
         window.addEventListener('load', function() {
-            // Força o topo sempre que carregar a página
-            window.scrollTo(0, 0);
+            // Se tiver um # na URL (ex: index.html#contato), não força pro topo
+            if (!window.location.hash) {
+                window.scrollTo(0, 0);
+            }
+            
             setTimeout(() => {
                 const preloader = document.getElementById('preloader');
                 preloader.style.opacity = '0';
                 setTimeout(() => {
                     preloader.style.display = 'none';
                     animateHackerText();
+                    
+                    // Se tiver hash, usa o lenis pra rolar até lá suavemente depois que carregar
+                    if (window.location.hash) {
+                        lenis.scrollTo(document.querySelector(window.location.hash));
+                    }
                 }, 800);
             }, 500); 
         });
@@ -225,10 +233,12 @@
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
+                if(!href) return;
+                
                 // Se for um link de âncora na MESMA PÁGINA (ex: #contato), Lenis cuida.
                 if(href.startsWith('#')) {
                     e.preventDefault();
-                    lenis.scrollTo(href);
+                    lenis.scrollTo(document.querySelector(href));
                     return;
                 }
                 // Se for um link para outra página do nosso site (ex: /sobre)

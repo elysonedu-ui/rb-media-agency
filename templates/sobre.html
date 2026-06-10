@@ -82,7 +82,9 @@
     <script>
         // --- PRELOADER & PAGE TRANSITIONS ---
         window.addEventListener('load', function() {
-            window.scrollTo(0, 0);
+            if (!window.location.hash) {
+                window.scrollTo(0, 0);
+            }
             setTimeout(() => {
                 const preloader = document.getElementById('preloader');
                 preloader.style.opacity = '0';
@@ -95,6 +97,8 @@
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
+                if(!href) return;
+                
                 if(href.startsWith('/')) {
                     e.preventDefault();
                     const preloader = document.getElementById('preloader');
