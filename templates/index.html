@@ -1,82 +1,294 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<style>
-    .home-hero {
-        padding: 250px 8% 150px;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RB MEDIA | Premium Digital Excellence</title>
     
-    .huge-hero-title {
-        font-family: var(--font-heading);
-        font-size: 7vw;
-        font-weight: 600;
-        line-height: 1.05;
-        margin-bottom: 40px;
-        letter-spacing: -2px;
-        text-transform: uppercase;
-    }
+    <!-- Fontes Brutalistas e Limpas -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    .huge-hero-title span {
-        color: var(--text-muted);
-        font-style: italic;
-    }
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="cuberto-theme">
     
-    .hero-video-wrapper {
-        width: 100%;
-        height: 60vh;
-        border-radius: 40px;
-        overflow: hidden;
-        margin-top: 50px;
-        position: relative;
-    }
-    
-    .hero-video-wrapper video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.5;
-    }
-    
-    .services-preview {
-        padding: 100px 8%;
-        background: var(--bg-black);
-    }
-</style>
-
-<section class="home-hero">
-    <h1 class="huge-hero-title reveal-text">
-        Nós criamos<br>
-        <span>experiências</span><br>
-        digitais de elite.
-    </h1>
-    
-    <div class="hero-video-wrapper reveal-text cursor-link" data-cursor-text="EXPLORAR">
-        <!-- We use an abstract dark gradient or pattern as a placeholder for a high-end showreel video -->
-        <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #000, #111, #050505); display: flex; align-items: center; justify-content: center;">
-            <p style="font-family: var(--font-heading); color: #333; font-size: 2rem; text-transform: uppercase;">Showreel Reel Area</p>
+    <!-- Clean Dark Preloader -->
+    <div class="elite-preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">RB MEDIA</div>
+            <div class="preloader-bar-container">
+                <div class="preloader-bar" id="p-bar"></div>
+            </div>
+            <div class="preloader-percentage" id="p-text">0%</div>
         </div>
     </div>
-</section>
 
-<section class="services-preview">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 80px;" class="reveal-text">
-        <h2 style="font-family: var(--font-heading); font-size: 4rem; text-transform: uppercase; line-height: 1;">A Arte da<br>Conversão</h2>
-        <a href="/servicos" class="magnetic-btn cursor-link" data-cursor-text="VER" style="text-decoration: none; border-bottom: 1px solid #fff; padding-bottom: 5px; color: #fff;">Ver Todos os Serviços</a>
+    <!-- Magnetic Interactive Cursor -->
+    <div class="custom-cursor" id="custom-cursor">
+        <span id="cursor-text"></span>
     </div>
-    
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;" class="reveal-text">
-        <div style="padding: 60px; background: #080808; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05);">
-            <h3 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 20px;">UX/UI Design</h3>
-            <p style="color: var(--text-muted); font-size: 1.2rem; line-height: 1.6;">Design focado na jornada do usuário. Neuro-design aplicado para aumentar a retenção e a conversão através de interfaces impecáveis.</p>
+
+    <!-- Global Minimal Navbar -->
+    <nav class="navbar">
+        <a href="/" class="nav-logo">RB MEDIA</a>
+        <div class="nav-links">
+            <a href="#solucoes" class="cursor-link">SOLUÇÕES</a>
+            <a href="#portfolio" class="cursor-link">PORTFÓLIO</a>
+            <a href="#contato" class="btn-glow cursor-link">CONTATO</a>
         </div>
-        <div style="padding: 60px; background: #080808; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05);">
-            <h3 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 20px;">Engenharia Web</h3>
-            <p style="color: var(--text-muted); font-size: 1.2rem; line-height: 1.6;">Nós não usamos templates. Desenvolvemos motores próprios, garantindo velocidade brutal, segurança e escalabilidade para o seu negócio.</p>
+    </nav>
+
+    <!-- Page Content Injection -->
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            
+            <!-- HERO SECTION -->
+            <section class="home-hero">
+                <div class="badge reveal-text">Agência de Tecnologia Premium</div>
+                <h1 class="huge-hero-title reveal-text" id="typewriter-text" style="min-height: 150px;"></h1>
+                <p class="hero-sub reveal-text" style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; line-height: 1.6; margin-bottom: 40px;">
+                    Plataformas de agendamento e softwares exclusivos de alto padrão para empresas que querem dominar o mercado. Sem templates. Engenharia pura.
+                </p>
+                <a href="#contato" class="btn-glow cursor-link reveal-text" data-cursor-text="ZAP">QUERO DOMINAR MEU MERCADO</a>
+            </section>
+
+            <!-- SOLUÇÕES SECTION -->
+            <section id="solucoes" class="services-preview" style="padding: 100px 8%; background: var(--bg-black);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 80px;" class="reveal-text">
+                    <h2 class="huge-hero-title" style="font-size: 4vw; margin:0;">A Arte da<br>Conversão</h2>
+                </div>
+                
+                <div class="solutions-grid reveal-text">
+                    <div class="solution-card">
+                        <div class="sc-icon">⚙️</div>
+                        <h3>Sistemas de Agendamento</h3>
+                        <p>Softwares sob medida para clínicas, barbearias e salões. Motores inteligentes com painel completo, totalmente automatizados.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="sc-icon">💎</div>
+                        <h3>Landing Pages Premium</h3>
+                        <p>Páginas de altíssima conversão. Utilizamos neuro-design e copy persuasiva aliados a animações interativas que retêm atenção.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="sc-icon">🚀</div>
+                        <h3>Aplicações SaaS</h3>
+                        <p>Desenvolvimento de Software como Serviço. Construímos sistemas completos para você faturar no piloto automático.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PORTFOLIO SECTION WITH 3D CSS MOCKUP -->
+            <section id="portfolio" class="portfolio-section" style="padding: 150px 8%; display: flex; align-items: center; gap: 50px; flex-wrap: wrap;">
+                
+                <div class="portfolio-text reveal-text" style="flex: 1; min-width: 300px;">
+                    <div class="badge" style="margin-bottom: 20px;">Estudo de Caso</div>
+                    <h2 class="huge-hero-title" style="font-size: 4vw;">IMPERIUM<br>BARBER</h2>
+                    <p style="color: var(--text-muted); font-size: 1.2rem; line-height: 1.6; margin-bottom: 40px;">
+                        Um ecossistema completo de gestão e agendamento. Construído em Python com um painel administrativo intuitivo e design de alta conversão.
+                        Uma prova absoluta de que a estética eleva o valor do seu serviço.
+                    </p>
+                    <a href="https://imperium-barber-engine.onrender.com" target="_blank" class="btn-glow cursor-link" data-cursor-text="PLAY">Acessar Projeto Completo</a>
+                </div>
+
+                <div class="portfolio-mockup reveal-text" style="flex: 1.5; min-width: 400px; display: flex; justify-content: center; align-items: center;">
+                    <!-- CSS 3D Mac Mockup Player -->
+                    <div class="css-mac-mockup">
+                        <div class="mac-header">
+                            <div class="mac-dot r"></div>
+                            <div class="mac-dot y"></div>
+                            <div class="mac-dot g"></div>
+                        </div>
+                        <div class="mac-body">
+                            <div class="mac-grid"></div>
+                            <div class="mac-content">
+                                <div class="mac-logo-text">IMPERIUM <span>BARBER</span></div>
+                                <div class="mac-subtitle">[ SAAS ENGINE - PAINEL ADMIN ]</div>
+                                
+                                <div class="mac-dashboard-cards">
+                                    <div class="mac-dash-card">
+                                        <div class="card-circle"></div>
+                                        <div class="card-line"></div>
+                                    </div>
+                                    <div class="mac-dash-card">
+                                        <div class="card-circle"></div>
+                                        <div class="card-line"></div>
+                                    </div>
+                                    <div class="mac-dash-card">
+                                        <div class="card-circle"></div>
+                                        <div class="card-line"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- CONTATO SECTION -->
+            <section id="contato" class="section" style="padding: 150px 8%; background: var(--bg-darker);">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <h2 class="huge-hero-title reveal-text" style="font-size: 4vw; margin-bottom: 10px;">Vamos <span>Começar?</span></h2>
+                    <p class="reveal-text" style="color: var(--text-muted);">Dê o primeiro passo para dominar o seu mercado.</p>
+                </div>
+                
+                <div class="contact-container reveal-text" style="max-width: 600px; margin: 0 auto; background: var(--glass-bg); padding: 40px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                    <form id="lead-form">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 10px; color: #fff;">Seu Nome</label>
+                            <input type="text" id="nome" required placeholder="João Silva" style="width: 100%; padding: 15px; border-radius: 10px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 10px; color: #fff;">Nome da sua Empresa</label>
+                            <input type="text" id="empresa" required placeholder="Barbearia do João" style="width: 100%; padding: 15px; border-radius: 10px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 10px; color: #fff;">WhatsApp (com DDD)</label>
+                            <input type="text" id="telefone" required placeholder="11 99999-9999" style="width: 100%; padding: 15px; border-radius: 10px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 30px;">
+                            <label style="display: block; margin-bottom: 10px; color: #fff;">Como podemos ajudar?</label>
+                            <textarea id="mensagem" rows="4" placeholder="Quero um sistema como o Imperium Barber..." style="width: 100%; padding: 15px; border-radius: 10px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); color: #fff;"></textarea>
+                        </div>
+                        <button type="submit" class="btn-glow cursor-link" data-cursor-text="ENVIAR" style="width: 100%; border: none;">ENVIAR SOLICITAÇÃO</button>
+                    </form>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <div class="footer-bottom" style="text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05);">
+                    <p>&copy; 2026 RB Media. Engineering Digital Excellence.</p>
+                </div>
+            </footer>
         </div>
-    </div>
-</section>
-{% endblock %}
+    </main>
+
+    <!-- Core Libraries: GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <script>
+        // --- PRELOADER & INITIALIZATION ---
+        const pBar = document.getElementById('p-bar');
+        const pText = document.getElementById('p-text');
+        const preloader = document.getElementById('preloader');
+        
+        let progress = 0;
+        const fakeLoader = setInterval(() => {
+            progress += Math.floor(Math.random() * 15) + 1;
+            if(progress >= 100) {
+                progress = 100;
+                clearInterval(fakeLoader);
+                gsap.to(preloader, { yPercent: -100, duration: 1.5, ease: "power4.inOut", delay: 0.2, onComplete: initEliteExperience });
+            }
+            pBar.style.width = progress + '%';
+            pText.textContent = progress + '%';
+        }, 60);
+
+        function initEliteExperience() {
+            // Typewriter effect
+            const textToType = "NÓS CRIAMOS EXPERIÊNCIAS DIGITAIS DE ELITE.";
+            const typeContainer = document.getElementById('typewriter-text');
+            let typeIndex = 0;
+            
+            function typeNext() {
+                if(typeIndex < textToType.length) {
+                    typeContainer.innerHTML = textToType.substring(0, typeIndex + 1) + '<span class="typewriter-cursor"></span>';
+                    typeIndex++;
+                    setTimeout(typeNext, 40);
+                } else {
+                    typeContainer.innerHTML = textToType;
+                }
+            }
+            typeNext();
+
+            // Smooth Scroll Setup (Lenis)
+            const lenis = new Lenis({ duration: 1.2, smooth: true, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+            requestAnimationFrame(raf);
+
+            // Cuberto-style Smooth Reveals
+            const reveals = document.querySelectorAll(".reveal-text");
+            reveals.forEach(el => {
+                gsap.fromTo(el, 
+                    { y: 100, opacity: 0 }, 
+                    { 
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%",
+                        },
+                        y: 0, 
+                        opacity: 1, 
+                        duration: 1.5, 
+                        ease: "power4.out" 
+                    }
+                );
+            });
+        }
+
+        // --- MAGNETIC DYNAMIC CURSOR ---
+        const cursor = document.getElementById('custom-cursor');
+        const cursorText = document.getElementById('cursor-text');
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        if (!isTouchDevice) {
+            let mouseX = 0;
+            let mouseY = 0;
+            let cursorX = 0;
+            let cursorY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            gsap.ticker.add(() => {
+                cursorX += (mouseX - cursorX) * 0.15;
+                cursorY += (mouseY - cursorY) * 0.15;
+                gsap.set(cursor, { x: cursorX, y: cursorY });
+            });
+
+            document.querySelectorAll('.cursor-link').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover');
+                    const text = el.getAttribute('data-cursor-text');
+                    if(text) {
+                        cursor.classList.add('has-text');
+                        cursorText.textContent = text;
+                    }
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                    cursor.classList.remove('has-text');
+                    cursorText.textContent = '';
+                });
+            });
+        } else {
+            cursor.style.display = 'none';
+        }
+
+        // --- FORM SUBMISSION ---
+        document.getElementById('lead-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const payload = {
+                nome: document.getElementById('nome').value,
+                empresa: document.getElementById('empresa').value,
+                telefone: document.getElementById('telefone').value,
+                mensagem: document.getElementById('mensagem').value
+            };
+            fetch('/contato', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
+            }).then(() => {
+                alert('Mensagem enviada com sucesso! Entraremos em contato.');
+                e.target.reset();
+            });
+        });
+    </script>
+</body>
+</html>
