@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    <div class="custom-cursor" id="custom-cursor"></div>
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
 
@@ -23,9 +24,9 @@
 
     <section class="hero">
         <div class="badge">Agência de Tecnologia Premium</div>
-        <h1 class="reveal">Nós não criamos sites. Construímos Máquinas de Vendas.</h1>
-        <p class="reveal" style="transition-delay: 0.2s;">Plataformas de agendamento e softwares exclusivos de alto padrão para empresas que querem dominar o mercado.</p>
-        <a href="#contato" class="btn-glow reveal" style="transition-delay: 0.4s;">QUERO DOMINAR MEU MERCADO</a>
+        <h1 class="reveal" id="typewriter-text" style="opacity: 1; transform: none;"></h1>
+        <p class="reveal" id="hero-sub" style="transition-delay: 0.2s; opacity: 0;">Plataformas de agendamento e softwares exclusivos de alto padrão para empresas que querem dominar o mercado.</p>
+        <a href="#contato" id="hero-btn" class="btn-glow reveal" style="transition-delay: 0.4s; opacity: 0;">QUERO DOMINAR MEU MERCADO</a>
     </section>
 
     <section id="solucoes" class="section">
@@ -112,6 +113,15 @@
         <p>&copy; 2026 RB Media. Elevando os padrões do desenvolvimento web.</p>
     </footer>
 
+    <!-- Social Proof Toast -->
+    <div class="social-toast" id="social-toast">
+        <div class="social-toast-icon">✓</div>
+        <div class="social-toast-text">
+            <strong id="toast-title">Novo Contrato Fechado</strong>
+            <span id="toast-desc">Barbearia Vintage (SP)</span>
+        </div>
+    </div>
+
     <script>
         // Scroll Reveal Animation
         function reveal() {
@@ -173,6 +183,74 @@
                 msgBox.style.display = "none";
             }, 5000);
         });
+
+        // Custom Magnetic Cursor
+        const cursor = document.getElementById('custom-cursor');
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        if (!isTouchDevice) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            document.querySelectorAll('a, button').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            });
+        }
+
+        // Typewriter Effect
+        const textToType = "Nós não criamos sites. Construímos Máquinas de Vendas.";
+        const typeContainer = document.getElementById('typewriter-text');
+        const heroSub = document.getElementById('hero-sub');
+        const heroBtn = document.getElementById('hero-btn');
+        let typeIndex = 0;
+
+        function typeWriter() {
+            if (typeIndex < textToType.length) {
+                typeContainer.innerHTML = textToType.substring(0, typeIndex + 1) + '<span class="typewriter-cursor"></span>';
+                typeIndex++;
+                setTimeout(typeWriter, 50); // Speed of typing
+            } else {
+                typeContainer.innerHTML = textToType; // Remove cursor after typing
+                heroSub.style.opacity = "1";
+                heroSub.style.transform = "translateY(0)";
+                heroBtn.style.opacity = "1";
+                heroBtn.style.transform = "translateY(0)";
+            }
+        }
+        
+        // Start typing after a short delay
+        setTimeout(typeWriter, 500);
+
+        // Social Proof Notifications
+        const toast = document.getElementById('social-toast');
+        const toastTitle = document.getElementById('toast-title');
+        const toastDesc = document.getElementById('toast-desc');
+        
+        const fakeClients = [
+            "Barbearia Vintage (SP)", "Imperium Barber (RJ)", "Studio 42 (MG)", 
+            "The Boss Barber (SC)", "Navalha de Ouro (PR)", "Old School Club (RS)"
+        ];
+
+        function showSocialProof() {
+            const randomClient = fakeClients[Math.floor(Math.random() * fakeClients.length)];
+            toastTitle.textContent = "Nova Consultoria Agendada";
+            toastDesc.textContent = randomClient;
+            
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000); // Hide after 5 seconds
+        }
+
+        // Pop the first notification after 10s, then every 25s
+        setTimeout(() => {
+            showSocialProof();
+            setInterval(showSocialProof, 25000);
+        }, 10000);
+
     </script>
 </body>
 </html>
