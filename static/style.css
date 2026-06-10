@@ -1,17 +1,16 @@
 :root {
-    --bg-black: #050505;
-    --bg-darker: #020202;
-    --glass-bg: rgba(15, 15, 15, 0.6);
+    --bg-black: #0c0c0c;
+    --bg-darker: #000000;
+    --glass-bg: rgba(255, 255, 255, 0.02);
     --glass-border: rgba(255, 255, 255, 0.05);
     
-    /* Cores atualizadas baseadas na logo (Estrela Azul) */
-    --neon-blue: #1c6ff8;
-    --neon-purple: #0b3d91;
+    --neon-blue: #ffffff; /* Bruto, limpo */
+    --neon-purple: #333333;
     
-    --text-main: #f0f0f0;
-    --text-muted: #888888;
+    --text-main: #ffffff;
+    --text-muted: #999999;
     
-    --font-heading: 'Syncopate', sans-serif;
+    --font-heading: 'Clash Display', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
 
@@ -84,25 +83,45 @@ body {
 }
 
 /* Custom Cursor */
+/* --- CUBERTO CURSOR --- */
 .custom-cursor {
     position: fixed;
     top: 0;
     left: 0;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--neon-blue);
+    width: 15px;
+    height: 15px;
+    background: #ffffff;
     border-radius: 50%;
-    transform: translate(-50%, -50%);
     pointer-events: none;
-    z-index: 9999;
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s;
+    mix-blend-mode: difference;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .custom-cursor.hover {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0, 210, 255, 0.1);
-    border-color: rgba(0, 210, 255, 0.5);
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.5);
+    mix-blend-mode: normal;
+}
+
+#cursor-text {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.custom-cursor.has-text #cursor-text {
+    opacity: 1;
 }
 
 /* Background Effects */
@@ -158,9 +177,9 @@ body {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: 2px;
     color: var(--text-main);
     text-decoration: none;
+    letter-spacing: 1px;
 }
 
 .nav-logo span {

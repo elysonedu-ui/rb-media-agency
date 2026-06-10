@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RB MEDIA | Digital Excellence</title>
+    
+    <!-- Cuberto Style Fonts: Clash Display (or general big rounded font) -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="cuberto-theme">
+    <!-- Clean Dark Preloader -->
+    <div class="elite-preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">RB MEDIA</div>
+            <div class="preloader-bar-container">
+                <div class="preloader-bar" id="p-bar"></div>
+            </div>
+            <div class="preloader-percentage" id="p-text">0%</div>
+        </div>
+    </div>
+
+    <!-- Magnetic Interactive Cursor -->
+    <div class="custom-cursor" id="custom-cursor">
+        <span id="cursor-text"></span>
+    </div>
+
+    <!-- Global Minimal Navbar -->
+    <nav class="navbar">
+        <a href="/" class="nav-logo">RB MEDIA</a>
+        <div class="nav-links">
+            <a href="/" class="cursor-link">INÍCIO</a>
+            <a href="/servicos" class="cursor-link">SERVIÇOS</a>
+            <a href="/portfolio" class="cursor-link">PORTFÓLIO</a>
+            <a href="/sobre" class="cursor-link">SOBRE</a>
+            <a href="/#contato" class="btn-glow cursor-link">CONTATO</a>
+        </div>
+    </nav>
+
+    <!-- Page Content Injection -->
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            {% block content %}{% endblock %}
+            
+            <footer class="footer">
+                <div class="footer-content reveal-text">
+                    <h2 class="massive-text">VAMOS INICIAR UM NOVO PROJETO?</h2>
+                    <a href="https://wa.me/5511914433981" target="_blank" class="magnetic-btn cursor-link" data-cursor-text="ZAP">
+                        <div class="btn-circle">FALAR NO WHATSAPP</div>
+                    </a>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 RB Media. Engineering Digital Excellence.</p>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Core Libraries: GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <script>
+        // --- 1. PRELOADER & INITIALIZATION ---
+        const pBar = document.getElementById('p-bar');
+        const pText = document.getElementById('p-text');
+        const preloader = document.getElementById('preloader');
+        
+        let progress = 0;
+        const fakeLoader = setInterval(() => {
+            progress += Math.floor(Math.random() * 15) + 1;
+            if(progress >= 100) {
+                progress = 100;
+                clearInterval(fakeLoader);
+                gsap.to(preloader, { yPercent: -100, duration: 1.5, ease: "power4.inOut", delay: 0.2, onComplete: initEliteExperience });
+            }
+            pBar.style.width = progress + '%';
+            pText.textContent = progress + '%';
+        }, 60);
+
+        function initEliteExperience() {
+            // Smooth Scroll Setup (Lenis)
+            const lenis = new Lenis({ duration: 1.2, smooth: true, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+            requestAnimationFrame(raf);
+
+            // Cuberto-style Smooth Reveals
+            const reveals = document.querySelectorAll(".reveal-text");
+            reveals.forEach(el => {
+                gsap.fromTo(el, 
+                    { y: 100, opacity: 0 }, 
+                    { 
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%",
+                        },
+                        y: 0, 
+                        opacity: 1, 
+                        duration: 1.5, 
+                        ease: "power4.out" 
+                    }
+                );
+            });
+            
+            // Allow page-specific animations
+            if(typeof pageAnimations === 'function') {
+                pageAnimations();
+            }
+        }
+
+        // --- 2. MAGNETIC DYNAMIC CURSOR ---
+        const cursor = document.getElementById('custom-cursor');
+        const cursorText = document.getElementById('cursor-text');
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        if (!isTouchDevice) {
+            let mouseX = 0;
+            let mouseY = 0;
+            let cursorX = 0;
+            let cursorY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            // Smooth cursor follow
+            gsap.ticker.add(() => {
+                cursorX += (mouseX - cursorX) * 0.15;
+                cursorY += (mouseY - cursorY) * 0.15;
+                gsap.set(cursor, { x: cursorX, y: cursorY });
+            });
+
+            // Hover interactions
+            document.querySelectorAll('.cursor-link').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover');
+                    const text = el.getAttribute('data-cursor-text');
+                    if(text) {
+                        cursor.classList.add('has-text');
+                        cursorText.textContent = text;
+                    }
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                    cursor.classList.remove('has-text');
+                    cursorText.textContent = '';
+                });
+            });
+        } else {
+            cursor.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

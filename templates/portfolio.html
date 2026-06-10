@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .portfolio-hero {
+        padding: 200px 8% 100px;
+    }
+    
+    .huge-title {
+        font-family: var(--font-heading);
+        font-size: 6rem;
+        font-weight: 600;
+        line-height: 1;
+        margin-bottom: 30px;
+        letter-spacing: -2px;
+        text-transform: uppercase;
+    }
+    
+    .portfolio-grid {
+        padding: 0 8% 150px;
+    }
+    
+    .project-card {
+        width: 100%;
+        border-radius: 30px;
+        overflow: hidden;
+        position: relative;
+        background: #111;
+        margin-bottom: 100px;
+    }
+    
+    .project-card-inner {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        overflow: hidden;
+    }
+    
+    .project-card img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    
+    .project-card:hover img {
+        transform: scale(1.05);
+    }
+    
+    .project-info {
+        padding: 40px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .project-title {
+        font-size: 2.5rem;
+        font-weight: 500;
+        font-family: var(--font-heading);
+    }
+    
+    .project-category {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+</style>
+
+<section class="portfolio-hero">
+    <h1 class="huge-title reveal-text">NOSSO<br>TRABALHO</h1>
+    <p class="reveal-text" style="font-size: 1.5rem; color: var(--text-muted); max-width: 600px;">
+        Nós não criamos apenas sites. Desenvolvemos ecossistemas digitais imersivos que convertem visitantes em clientes de alto valor.
+    </p>
+</section>
+
+<section class="portfolio-grid">
+    <a href="https://imperium-barber-engine.onrender.com" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="project-card cursor-link reveal-text" data-cursor-text="PLAY">
+            <div class="project-card-inner">
+                <img src="/static/portfolio_imperium.png" alt="Imperium Barber Engine">
+            </div>
+            <div class="project-info">
+                <div class="project-title">Imperium Barber</div>
+                <div class="project-category">Engine & Design</div>
+            </div>
+        </div>
+    </a>
+    
+    <!-- Placeholder for future projects -->
+    <div class="project-card cursor-link reveal-text" style="opacity: 0.3; filter: grayscale(1);" data-cursor-text="EM BREVE">
+        <div class="project-card-inner">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #222; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-family: var(--font-heading);">
+                EM BREVE
+            </div>
+        </div>
+        <div class="project-info">
+            <div class="project-title">Sistema de Clínicas</div>
+            <div class="project-category">SaaS White-Label</div>
+        </div>
+    </div>
+</section>
+{% endblock %}

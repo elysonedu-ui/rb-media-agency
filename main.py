@@ -10,6 +10,14 @@ def index():
 def sobre():
     return render_template('sobre.html')
 
+@app.route('/portfolio')
+def portfolio():
+    return render_template('portfolio.html')
+
+@app.route('/servicos')
+def servicos():
+    return render_template('servicos.html')
+
 @app.route('/contato', methods=['POST'])
 def contato():
     data = request.get_json()
