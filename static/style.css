@@ -254,50 +254,6 @@ html, body {
     .snap-section { padding: 0 5%; }
 }
 
-/* --- 3D HOLOGRAPHIC CUBES --- */
-.cube-container {
-    width: 60px;
-    height: 60px;
-    perspective: 800px;
-    margin: 0 auto 30px auto;
-}
-.cube {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    animation: cube-spin 8s infinite linear;
-}
-.cube-face {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: rgba(28, 111, 248, 0.05);
-    border: 1px solid rgba(28, 111, 248, 0.4);
-    box-shadow: inset 0 0 15px rgba(28, 111, 248, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    color: var(--accent-blue);
-    backdrop-filter: blur(2px);
-}
-.cube-face.front  { transform: translateZ(30px); }
-.cube-face.back   { transform: rotateY(180deg) translateZ(30px); }
-.cube-face.right  { transform: rotateY(90deg) translateZ(30px); }
-.cube-face.left   { transform: rotateY(-90deg) translateZ(30px); }
-.cube-face.top    { transform: rotateX(90deg) translateZ(30px); }
-.cube-face.bottom { transform: rotateX(-90deg) translateZ(30px); }
-
-@keyframes cube-spin {
-    0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-    100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
-}
-
-.glass-card:hover .cube {
-    animation-duration: 2s;
-}
-
 /* --- DEVICES CSS MOCKUPS --- */
 .devices-showcase {
     position: relative;
