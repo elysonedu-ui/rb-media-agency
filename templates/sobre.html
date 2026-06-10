@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RB MEDIA | Sobre o Motor</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body { overflow-y: auto; } /* Não usa snap container aqui */
+        .manifesto-section {
+            padding: 150px 8%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .manifesto-title {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+        .manifesto-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+        .manifesto-text strong {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tech Cursors -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
+        <a href="/" class="nav-logo hover-target">RB MEDIA</a>
+        <div class="nav-links">
+            <a href="/#solucoes" class="nav-link hover-target">SOLUÇÕES</a>
+            <a href="/#portfolio" class="nav-link hover-target">PRODUÇÃO</a>
+            <a href="/sobre" class="nav-link hover-target" style="color: var(--accent-blue);">SOBRE NÓS</a>
+            <a href="/#contato" class="btn-glow hover-target">INICIAR PROJETO</a>
+        </div>
+    </nav>
+
+    <div class="bg-grid" style="opacity: 0.3; position: fixed;"></div>
+
+    <section class="manifesto-section">
+        <h1 class="manifesto-title fade-up">O FIM DOS<br><span style="color: var(--accent-blue);">TEMPLATES</span>.</h1>
+        
+        <p class="manifesto-text fade-up">
+            Nós observamos o mercado digital e percebemos um erro crítico: <strong>90% das agências estão vendendo a mesma carcaça vazia de WordPress</strong> para todos os clientes. Elas focam em "sites bonitinhos" que quebram, são lentos e não vendem.
+        </p>
+        <p class="manifesto-text fade-up">
+            A <strong>RB Media</strong> foi fundada para destruir esse padrão. Nós não somos criadores de "sites". Nós somos Engenheiros de Software. Desenvolvemos ecossistemas complexos em Python e JavaScript puro.
+        </p>
+        <p class="manifesto-text fade-up">
+            Quando construímos a <span style="color: var(--accent-blue);">Imperium Barber Engine</span>, nós não montamos um calendário na web. Construímos um painel administrativo com controle de funcionários, cálculo de lucros e proteção de banco de dados nativa. Tudo envelopado em uma estética de Neuro-Design feita para espremer a última gota de atenção do cérebro humano.
+        </p>
+        <p class="manifesto-text fade-up" style="margin-top: 60px; font-family: var(--font-heading); color: #fff;">
+            BEM-VINDO AO ALTO PADRÃO.
+        </p>
+        
+        <a href="/#contato" class="btn-glow hover-target fade-up" style="display: inline-block; margin-top: 40px; padding: 20px 40px; font-size: 1.2rem;">REQUISITAR ACESSO</a>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // --- CUSTOM CURSOR ---
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorRing = document.getElementById('cursor-ring');
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.transform = `translate(${mouseX - 5}px, ${mouseY - 5}px)`;
+        });
+        gsap.ticker.add(() => {
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            cursorRing.style.transform = `translate(${ringX - 20}px, ${ringY - 20}px)`;
+        });
+        document.querySelectorAll('.hover-target').forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+        });
+
+        // --- FADE UP OBSERVER ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if(entry.isIntersecting) {
+                    gsap.fromTo(entry.target, 
+                        { y: 50, opacity: 0 }, 
+                        { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+                    );
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
