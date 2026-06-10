@@ -54,7 +54,7 @@
         <section class="snap-section" id="solucoes">
             <div class="bg-grid" style="opacity: 0.5;"></div>
             <div style="z-index: 1; width: 100%;">
-                <h2 style="font-family: var(--font-heading); font-size: 3rem; margin-bottom: 50px; text-align: center;" class="fade-up">NEURO-CONVERSÃO</h2>
+                <h2 class="section-title fade-up">NEURO-CONVERSÃO</h2>
                 
                 <div class="glass-grid fade-up">
                     <div class="glass-card hover-target">
@@ -373,10 +373,15 @@
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(payload)
             }).then(() => {
-                // Redireciona pro WhatsApp com os dados do ponto de vista do CLIENTE
-                const msg = encodeURIComponent(`Olá equipe da RB Media! Acabei de solicitar a Auditoria de Sistema lá no site.\n\nMe chamo ${payload.nome}, da empresa ${payload.empresa}.\n\nPodemos falar sobre o meu projeto?`);
-                window.open(`https://wa.me/5511914433981?text=${msg}`, '_blank');
-                e.target.reset();
+                // Remove o redirect do WhatsApp e coloca uma mensagem premium na tela
+                const formArea = document.querySelector('.contact-form-area');
+                formArea.innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px; animation: pulse 2s infinite;">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <h2 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 15px;">PROTOCOLO INICIADO</h2>
+                        <p style="color: var(--text-muted); line-height: 1.6;">Seus dados foram criptografados e enviados para a nossa diretoria. Entraremos em contato via WhatsApp em breve.</p>
+                    </div>
+                `;
             });
         });
     </script>
