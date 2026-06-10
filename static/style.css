@@ -1,7 +1,7 @@
 :root {
     --bg-color: #020202;
     --text-main: #ffffff;
-    --text-muted: #888888;
+    --text-muted: #b3b3b3; /* Clareado para melhor leitura */
     --accent-blue: #1c6ff8;
     --accent-glow: rgba(28, 111, 248, 0.5);
     --font-heading: 'Syncopate', sans-serif;
@@ -133,6 +133,17 @@ html, body {
 /* DECODE ANIMATION CLASS */
 .hacker-decode {
     opacity: 0;
+}
+
+/* SERVICE ICONS */
+.service-icon {
+    margin-bottom: 25px;
+    color: var(--accent-blue);
+    filter: drop-shadow(0 0 15px rgba(28,111,248,0.6));
+    transition: transform 0.3s;
+}
+.glass-card:hover .service-icon {
+    transform: scale(1.1);
 }
 
 /* CARDS GLASSMORPHISM */
