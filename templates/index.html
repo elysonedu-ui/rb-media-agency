@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RB Media | High-End Software Solutions</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+
+    <nav class="navbar">
+        <a href="#" class="nav-logo">RB<span>MEDIA</span></a>
+        <div class="nav-links">
+            <a href="#solucoes">Soluções</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">Agência de Tecnologia Premium</div>
+        <h1 class="reveal">Nós não criamos sites. Construímos Máquinas de Vendas.</h1>
+        <p class="reveal" style="transition-delay: 0.2s;">Plataformas de agendamento e softwares exclusivos de alto padrão para empresas que querem dominar o mercado.</p>
+        <a href="#contato" class="btn-glow reveal" style="transition-delay: 0.4s;">QUERO DOMINAR MEU MERCADO</a>
+    </section>
+
+    <section id="solucoes" class="section">
+        <h2 class="section-title reveal">O que <span>Construímos</span></h2>
+        <div class="solutions-grid">
+            <div class="solution-card reveal">
+                <div class="sc-icon">✦</div>
+                <h3>Sistemas Premium White-Label</h3>
+                <p>Nós não vendemos templates. Nós entregamos um sistema com a sua marca, suas cores e a sua identidade. Controle total na palma da sua mão.</p>
+            </div>
+            <div class="solution-card reveal" style="transition-delay: 0.2s;">
+                <div class="sc-icon">⚡</div>
+                <h3>Agendamento Inteligente</h3>
+                <p>Abandone a agenda de papel. Um motor de agendamento 24h por dia que funciona sozinho, calculando intervalos e conflitos de horários em tempo real.</p>
+            </div>
+            <div class="solution-card reveal" style="transition-delay: 0.4s;">
+                <div class="sc-icon">◈</div>
+                <h3>CRM e Captura de Leads</h3>
+                <p>Cada pessoa que agenda com você vira um ativo. O sistema constrói uma base de dados de clientes (CRM) para você usar em promoções futuras.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section showcase">
+        <div class="showcase-content">
+            <div class="showcase-text reveal">
+                <h2>O "Motor Supremo" para Barbearias</h2>
+                <p>Nosso carro-chefe. Uma plataforma completa de gestão de barbearias, feita sob medida para donos de estúdios que buscam excelência.</p>
+                <ul style="color: var(--text-muted); list-style: none; margin-bottom: 30px; line-height: 2;">
+                    <li><strong style="color: var(--neon-blue);">✓</strong> Painel Administrativo Completo</li>
+                    <li><strong style="color: var(--neon-blue);">✓</strong> Autonomia para trocar serviços e preços</li>
+                    <li><strong style="color: var(--neon-blue);">✓</strong> Controle de Barbeiros e Faturamento Estimado</li>
+                </ul>
+                <a href="#contato" class="btn-glow">Solicitar Demonstração</a>
+            </div>
+            <div class="showcase-image reveal" style="transition-delay: 0.3s;">
+                <div class="mockup-container">
+                    <div class="mockup-header">
+                        <div class="mockup-dot dot-r"></div>
+                        <div class="mockup-dot dot-y"></div>
+                        <div class="mockup-dot dot-g"></div>
+                    </div>
+                    <div class="mockup-body">
+                        <h3>IMPERIUM BARBER</h3>
+                        <p style="color: #666; font-family: var(--font-body); font-size: 0.8rem;">[ PAINEL ADMINISTRATIVO ]</p>
+                        <div style="margin-top: 20px; width: 80%; height: 2px; background: #222;"></div>
+                        <div style="display: flex; gap: 10px; margin-top: 20px;">
+                            <div style="width: 50px; height: 50px; background: rgba(0, 210, 255, 0.1); border: 1px solid rgba(0, 210, 255, 0.3); border-radius: 8px;"></div>
+                            <div style="width: 50px; height: 50px; background: rgba(112, 0, 255, 0.1); border: 1px solid rgba(112, 0, 255, 0.3); border-radius: 8px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="section">
+        <h2 class="section-title reveal">Vamos <span>Começar?</span></h2>
+        <div class="contact-container reveal">
+            <form id="contact-form">
+                <div class="form-group">
+                    <label class="form-label">Seu Nome</label>
+                    <input type="text" id="nome" class="form-input" required placeholder="João Silva">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Nome da sua Empresa</label>
+                    <input type="text" id="empresa" class="form-input" required placeholder="Barbearia do João">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">WhatsApp (com DDD)</label>
+                    <input type="text" id="telefone" class="form-input" required placeholder="11 99999-9999">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Como podemos ajudar?</label>
+                    <textarea id="mensagem" class="form-input" rows="4" placeholder="Quero um sistema como o Imperium Barber para o meu estúdio..."></textarea>
+                </div>
+                <button type="submit" class="btn-glow" style="width: 100%; border: none; background: var(--neon-purple); color: white;">ENVIAR SOLICITAÇÃO</button>
+            </form>
+            <div id="form-message" style="margin-top: 20px; text-align: center; color: var(--neon-blue); display: none;"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 RB Media. Elevando os padrões do desenvolvimento web.</p>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
+
+        // Form Submission Handler
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const msgBox = document.getElementById('form-message');
+            
+            btn.textContent = "ENVIANDO...";
+            btn.style.opacity = "0.5";
+
+            const payload = {
+                nome: document.getElementById('nome').value,
+                empresa: document.getElementById('empresa').value,
+                telefone: document.getElementById('telefone').value,
+                mensagem: document.getElementById('mensagem').value
+            };
+
+            try {
+                const response = await fetch('/contato', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+                
+                if (response.ok) {
+                    msgBox.textContent = result.success;
+                    msgBox.style.color = "var(--neon-blue)";
+                    e.target.reset();
+                } else {
+                    msgBox.textContent = result.error;
+                    msgBox.style.color = "#ff3333";
+                }
+            } catch (err) {
+                msgBox.textContent = "Erro na conexão.";
+                msgBox.style.color = "#ff3333";
+            }
+
+            msgBox.style.display = "block";
+            btn.textContent = "ENVIAR SOLICITAÇÃO";
+            btn.style.opacity = "1";
+            
+            setTimeout(() => {
+                msgBox.style.display = "none";
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
