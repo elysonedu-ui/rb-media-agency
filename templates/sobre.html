@@ -36,6 +36,12 @@
 </head>
 <body>
 
+    <!-- Preloader / Loading Screen -->
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #020202; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.8s ease;">
+        <div style="width: 50px; height: 50px; border: 2px solid rgba(28,111,248,0.2); border-top: 2px solid var(--accent-blue); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
+        <p style="font-family: var(--font-heading); color: var(--accent-blue); letter-spacing: 3px; font-size: 0.9rem; animation: pulse 1.5s infinite;">SISTEMA ONLINE</p>
+    </div>
+
     <!-- Tech Cursors -->
     <div class="cursor-dot" id="cursor-dot"></div>
     <div class="cursor-ring" id="cursor-ring"></div>
@@ -74,6 +80,34 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
+        // --- PRELOADER & PAGE TRANSITIONS ---
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 800);
+            }, 500); 
+        });
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if(href.startsWith('/')) {
+                    e.preventDefault();
+                    const preloader = document.getElementById('preloader');
+                    preloader.style.display = 'flex';
+                    void preloader.offsetWidth; // Força reflow
+                    preloader.style.opacity = '1';
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                }
+            });
+        });
+
         // --- CUSTOM CURSOR ---
         const cursorDot = document.getElementById('cursor-dot');
         const cursorRing = document.getElementById('cursor-ring');

@@ -207,27 +207,42 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script>
-        // --- PRELOADER & SCROLL TO TOP ---
-        // Previne que o navegador restaure a posição de rolagem antiga ao dar F5
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
-        
-        window.addEventListener('beforeunload', function() {
-            window.scrollTo(0, 0);
-        });
-
+        // --- PRELOADER & PAGE TRANSITIONS ---
         window.addEventListener('load', function() {
+            // Força o topo sempre que carregar a página
             window.scrollTo(0, 0);
             setTimeout(() => {
                 const preloader = document.getElementById('preloader');
                 preloader.style.opacity = '0';
                 setTimeout(() => {
                     preloader.style.display = 'none';
-                    // Dispara a animação hacker apenas após o loading sumir
                     animateHackerText();
                 }, 800);
-            }, 1000); // Fica 1 segundo na tela carregando
+            }, 500); 
+        });
+
+        // Intercepta cliques para outras páginas e faz transição
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                // Se for um link de âncora na MESMA PÁGINA (ex: #contato), Lenis cuida.
+                if(href.startsWith('#')) {
+                    e.preventDefault();
+                    lenis.scrollTo(href);
+                    return;
+                }
+                // Se for um link para outra página do nosso site (ex: /sobre)
+                if(href.startsWith('/') && !href.includes('#')) {
+                    e.preventDefault();
+                    const preloader = document.getElementById('preloader');
+                    preloader.style.display = 'flex';
+                    void preloader.offsetWidth; // Força reflow
+                    preloader.style.opacity = '1';
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                }
+            });
         });
 
         // --- LENIS SMOOTH SCROLL ---
