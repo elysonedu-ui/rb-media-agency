@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    <!-- Elite Preloader -->
+    <div class="elite-preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">RB<span>MEDIA</span></div>
+            <div class="preloader-bar-container">
+                <div class="preloader-bar" id="p-bar"></div>
+            </div>
+            <div class="preloader-percentage" id="p-text">0%</div>
+        </div>
+    </div>
+
     <div class="custom-cursor" id="custom-cursor"></div>
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
@@ -138,21 +149,119 @@
         </svg>
     </a>
 
+    <!-- Core Libraries: GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
     <script>
-        // Scroll Reveal Animation
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
+        // --- 1. PRELOADER & INITIALIZATION ---
+        const pBar = document.getElementById('p-bar');
+        const pText = document.getElementById('p-text');
+        const preloader = document.getElementById('preloader');
+        
+        let progress = 0;
+        const fakeLoader = setInterval(() => {
+            progress += Math.floor(Math.random() * 10) + 1;
+            if(progress >= 100) {
+                progress = 100;
+                clearInterval(fakeLoader);
+                
+                // GSAP Animation to reveal site
+                gsap.to(preloader, {
+                    yPercent: -100,
+                    duration: 1.2,
+                    ease: "power4.inOut",
+                    delay: 0.2,
+                    onComplete: () => {
+                        initEliteExperience();
+                    }
+                });
             }
+            pBar.style.width = progress + '%';
+            pText.textContent = progress + '%';
+        }, 80);
+
+        // --- 2. ELITE EXPERIENCE (Runs after preloader) ---
+        function initEliteExperience() {
+            // Smooth Scroll (Lenis)
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                mouseMultiplier: 1,
+                smoothTouch: false, // Default native scroll on touch for better UX
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // Integrate Lenis with GSAP ScrollTrigger
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => { lenis.raf(time * 1000) });
+            gsap.ticker.lagSmoothing(0, 0);
+
+            // Scroll Reveal Animation (Native replacement for previous logic)
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(el => {
+                gsap.fromTo(el, 
+                    { y: 50, opacity: 0 }, 
+                    { 
+                        y: 0, 
+                        opacity: 1, 
+                        duration: 1, 
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+            // Parallax Effect on Mockup 3D
+            gsap.to(".mockup-container", {
+                y: -80,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".showcase",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+
+            // Start typing after reveal
+            setTimeout(typeWriter, 200);
         }
-        window.addEventListener("scroll", reveal);
-        reveal(); // Trigger on load
+
+        // --- 3. EXISTING FUNCTIONALITY ---
+        
+        // Hacker Decrypt Effect on Button
+        const heroBtn = document.getElementById('hero-btn');
+        const originalText = "QUERO DOMINAR MEU MERCADO";
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*";
+        
+        heroBtn.addEventListener("mouseover", event => {
+            let iterations = 0;
+            const interval = setInterval(() => {
+                event.target.innerText = event.target.innerText.split("")
+                .map((letter, index) => {
+                    if(index < iterations) return originalText[index];
+                    return letters[Math.floor(Math.random() * 26)]
+                })
+                .join("");
+                
+                if(iterations >= originalText.length) clearInterval(interval);
+                iterations += 1;
+            }, 30);
+        });
 
         // Form Submission Handler
         document.getElementById('contact-form').addEventListener('submit', async (e) => {
@@ -220,25 +329,20 @@
         const textToType = "Nós não criamos sites. Construímos Máquinas de Vendas.";
         const typeContainer = document.getElementById('typewriter-text');
         const heroSub = document.getElementById('hero-sub');
-        const heroBtn = document.getElementById('hero-btn');
+        // heroBtn already defined above
         let typeIndex = 0;
 
         function typeWriter() {
             if (typeIndex < textToType.length) {
                 typeContainer.innerHTML = textToType.substring(0, typeIndex + 1) + '<span class="typewriter-cursor"></span>';
                 typeIndex++;
-                setTimeout(typeWriter, 50); // Speed of typing
+                setTimeout(typeWriter, 40); // Speed of typing
             } else {
                 typeContainer.innerHTML = textToType; // Remove cursor after typing
-                heroSub.style.opacity = "1";
-                heroSub.style.transform = "translateY(0)";
-                heroBtn.style.opacity = "1";
-                heroBtn.style.transform = "translateY(0)";
+                gsap.to(heroSub, {opacity: 1, y: 0, duration: 1, ease: "power3.out"});
+                gsap.to(heroBtn, {opacity: 1, y: 0, duration: 1, delay: 0.2, ease: "power3.out"});
             }
         }
-        
-        // Start typing after a short delay
-        setTimeout(typeWriter, 500);
 
     </script>
 </body>

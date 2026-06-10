@@ -26,6 +26,59 @@ body {
     cursor: none; /* Hide default cursor */
 }
 
+/* Elite Preloader */
+.elite-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.preloader-logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+.preloader-logo span {
+    color: var(--neon-blue);
+}
+
+.preloader-bar-container {
+    width: 200px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.preloader-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--neon-purple);
+    transition: width 0.1s linear;
+}
+
+.preloader-percentage {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
 /* Custom Cursor */
 .custom-cursor {
     position: fixed;
