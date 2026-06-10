@@ -16,35 +16,26 @@
 
 html, body {
     width: 100%;
-    height: 100%;
     background-color: var(--bg-color);
     color: var(--text-main);
     font-family: var(--font-body);
-    overflow: hidden; /* Oculta a barra nativa para usar o snap container */
+    overflow-x: hidden;
 }
 
-/* Scroll Snap Container */
+/* Container Normal de Rolagem */
 .snap-container {
-    height: 100vh;
-    width: 100vw;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    /* Custom Scrollbar escondida para estética limpa */
-    scrollbar-width: none;
-}
-.snap-container::-webkit-scrollbar {
-    display: none;
+    width: 100%;
+    /* Removido o height 100vh e o scroll-snap para rolagem livre e fluida */
+    overflow-x: hidden;
 }
 
 .snap-section {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
-    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 8%;
+    padding: 100px 8%;
     position: relative;
 }
 
@@ -56,10 +47,10 @@ html, body {
     width: 100%;
     padding: 30px 8%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centraliza a logo */
     align-items: center;
     z-index: 1000;
-    pointer-events: none; /* Deixa clicar apenas nos links */
+    pointer-events: none;
 }
 .nav-logo {
     font-family: var(--font-heading);
@@ -82,6 +73,8 @@ html, body {
     box-shadow: 0 0 10px var(--accent-glow);
 }
 .nav-links {
+    position: absolute;
+    right: 8%; /* Mantem os links a direita */
     display: flex;
     gap: 30px;
     pointer-events: auto;
