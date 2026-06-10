@@ -28,11 +28,16 @@
     <!-- Navigation -->
     <nav class="navbar">
         <a href="/" class="nav-logo hover-target">RB MEDIA</a>
-        <div class="nav-links">
-            <a href="#solucoes" class="nav-link hover-target">SOLUÇÕES</a>
-            <a href="#portfolio" class="nav-link hover-target">PRODUÇÃO</a>
+        <div class="hamburger hover-target" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="#solucoes" class="nav-link hover-target mobile-close">SOLUÇÕES</a>
+            <a href="#portfolio" class="nav-link hover-target mobile-close">PRODUÇÃO</a>
             <a href="/sobre" class="nav-link hover-target">SOBRE NÓS</a>
-            <a href="#contato" class="btn-glow hover-target">INICIAR PROJETO</a>
+            <a href="#contato" class="btn-glow hover-target mobile-close">INICIAR PROJETO</a>
         </div>
     </nav>
 
@@ -269,6 +274,24 @@
                 navLogo.style.pointerEvents = 'auto';
             }
         });
+
+        // --- MOBILE HAMBURGER MENU ---
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        const mobileCloseLinks = document.querySelectorAll('.mobile-close');
+
+        if(hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+            mobileCloseLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+        }
 
         // --- LENIS SMOOTH SCROLL ---
         const lenis = new Lenis({ duration: 1.2, smooth: true });
