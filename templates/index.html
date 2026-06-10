@@ -375,26 +375,43 @@
         // --- FORM SAVE TO SPREADSHEET (CSV) ---
         document.getElementById('lead-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const payload = {
-                nome: document.getElementById('nome').value,
-                empresa: document.getElementById('empresa').value,
-                telefone: document.getElementById('telefone').value
-            };
+            
+            // Dados capturados
+            const nomeStr = document.getElementById('nome').value;
+            const empresaStr = document.getElementById('empresa').value;
+            const telStr = document.getElementById('telefone').value;
+
+            // Mostra a tela de Loading / Sucesso IMEDIATAMENTE pro usuário não ficar esperando
+            const formArea = document.querySelector('.contact-form-area');
+            formArea.innerHTML = `
+                <div style="text-align: center; padding: 60px 20px; animation: pulse 2s infinite;">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <h2 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 15px;">PROTOCOLO INICIADO</h2>
+                    <p style="color: var(--text-muted); line-height: 1.6;">Seus dados foram processados com segurança. Entraremos em contato em breve.</p>
+                </div>
+            `;
+
+            // Envia silenciosamente para o E-mail usando FormSubmit
+            fetch('https://formsubmit.co/ajax/rbmediaofficial08@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    Nome: nomeStr,
+                    Empresa: empresaStr,
+                    WhatsApp: telStr,
+                    Assunto: "NOVO LEAD - RB MEDIA AGENCY"
+                })
+            }).catch(error => console.log('Erro ao enviar email:', error));
+            
+            // Tenta salvar localmente no CSV só como redundância
             fetch('/contato', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(payload)
-            }).then(() => {
-                // Remove o redirect do WhatsApp e coloca uma mensagem premium na tela
-                const formArea = document.querySelector('.contact-form-area');
-                formArea.innerHTML = `
-                    <div style="text-align: center; padding: 60px 20px; animation: pulse 2s infinite;">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                        <h2 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 15px;">PROTOCOLO INICIADO</h2>
-                        <p style="color: var(--text-muted); line-height: 1.6;">Seus dados foram criptografados e enviados para a nossa diretoria. Entraremos em contato via WhatsApp em breve.</p>
-                    </div>
-                `;
-            });
+                body: JSON.stringify({nome: nomeStr, empresa: empresaStr, telefone: telStr})
+            }).catch(() => {});
         });
     </script>
 </body>
