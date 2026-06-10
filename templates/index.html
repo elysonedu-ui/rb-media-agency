@@ -258,15 +258,15 @@
             });
         });
 
-        // --- HIDE NAVBAR ON SCROLL ---
-        const navbar = document.querySelector('.navbar');
+        // --- HIDE LOGO ON SCROLL (KEEP LINKS) ---
+        const navLogo = document.querySelector('.nav-logo');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navbar.style.opacity = '0';
-                navbar.style.pointerEvents = 'none';
+                navLogo.style.opacity = '0';
+                navLogo.style.pointerEvents = 'none';
             } else {
-                navbar.style.opacity = '1';
-                navbar.style.pointerEvents = 'auto';
+                navLogo.style.opacity = '1';
+                navLogo.style.pointerEvents = 'auto';
             }
         });
 

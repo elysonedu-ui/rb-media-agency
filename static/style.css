@@ -492,3 +492,6 @@ html, body {
 
 .navbar { transition: opacity 0.4s ease; }
 
+
+.nav-logo { transition: opacity 0.4s ease; }
+
