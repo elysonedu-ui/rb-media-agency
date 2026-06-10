@@ -1,12 +1,16 @@
 :root {
     --bg-black: #050505;
     --bg-darker: #020202;
-    --neon-blue: #00d2ff;
-    --neon-purple: #7000ff;
-    --text-main: #ffffff;
+    --glass-bg: rgba(15, 15, 15, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    
+    /* Cores atualizadas baseadas na logo (Estrela Azul) */
+    --neon-blue: #1c6ff8;
+    --neon-purple: #0b3d91;
+    
+    --text-main: #f0f0f0;
     --text-muted: #888888;
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.08);
+    
     --font-heading: 'Syncopate', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
