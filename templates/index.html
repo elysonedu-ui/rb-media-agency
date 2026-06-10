@@ -239,20 +239,22 @@
             observer.observe(el);
         });
 
-        // --- FORM DIRECT TO WHATSAPP ---
+        // --- FORM SAVE TO SPREADSHEET (CSV) ---
         document.getElementById('lead-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const nome = document.getElementById('nome').value;
-            const empresa = document.getElementById('empresa').value;
-            
-            // Texto pré-formatado que vai chegar no seu WhatsApp
-            const text = `Protocolo Iniciado! 🚀\n\nOlá *RB Media*, me chamo *${nome}*.\nSou da empresa *${empresa}* e gostaria de solicitar uma Auditoria de Sistema para o meu projeto.`;
-            
-            // SEU NÚMERO DE WHATSAPP AQUI (Apenas números, com código do país 55)
-            const seuNumero = "5511914433981"; 
-            
-            const url = `https://wa.me/${seuNumero}?text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
+            const payload = {
+                nome: document.getElementById('nome').value,
+                empresa: document.getElementById('empresa').value,
+                telefone: document.getElementById('telefone').value
+            };
+            fetch('/contato', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
+            }).then(() => {
+                alert('Dados salvos na Planilha do Sistema. Entraremos em contato em breve.');
+                e.target.reset();
+            });
         });
     </script>
 </body>

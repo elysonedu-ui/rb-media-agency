@@ -1,4 +1,5 @@
 import os
+import csv
 from flask import Flask, request, jsonify, render_template
 import logging
 
@@ -15,13 +16,25 @@ def sobre():
 @app.route('/contato', methods=['POST'])
 def contato():
     data = request.get_json()
-    nome = data.get('nome')
-    empresa = data.get('empresa')
-    telefone = data.get('telefone')
-    mensagem = data.get('mensagem')
+    nome = data.get('nome', '')
+    empresa = data.get('empresa', '')
+    telefone = data.get('telefone', '')
     
-    with open('leads.txt', 'a', encoding='utf-8') as f:
-        f.write(f"Nome: {nome} | Empresa: {empresa} | Tel: {telefone} | Msg: {mensagem}\n")
+    # Salvar em formato de Planilha (CSV)
+    file_exists = os.path.isfile('leads.csv')
+    with open('leads.csv', 'a', newline='', encoding='utf-8') as csvfile:
+        fieldnames = ['Nome', 'Empresa', 'Telefone', 'Status']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        
+        if not file_exists:
+            writer.writeheader()
+            
+        writer.writerow({
+            'Nome': nome,
+            'Empresa': empresa,
+            'Telefone': telefone,
+            'Status': 'Novo'
+        })
         
     return jsonify({"status": "success"})
 
