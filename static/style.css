@@ -90,13 +90,13 @@ body {
     left: 0;
     width: 15px;
     height: 15px;
-    background: #ffffff;
+    background: #1c6ff8; /* Azul da marca para dar destaque no fundo preto */
     border-radius: 50%;
     pointer-events: none;
     z-index: 99999;
     transform: translate(-50%, -50%);
     transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s;
-    mix-blend-mode: difference;
+    box-shadow: 0 0 10px rgba(28, 111, 248, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,10 +105,10 @@ body {
 .custom-cursor.hover {
     width: 80px;
     height: 80px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(28, 111, 248, 0.8); /* Fundo azul no hover */
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255,255,255,0.5);
-    mix-blend-mode: normal;
+    border: none;
+    box-shadow: 0 0 30px rgba(28, 111, 248, 0.6);
 }
 
 #cursor-text {
