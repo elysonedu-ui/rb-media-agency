@@ -449,3 +449,39 @@ html, body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/* --- INFINITE TICKER MARQUEE --- */
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+    padding: 20px 0;
+    border-top: 1px solid rgba(28, 111, 248, 0.2);
+    border-bottom: 1px solid rgba(28, 111, 248, 0.2);
+    box-shadow: 0 0 20px rgba(28, 111, 248, 0.1);
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+}
+.ticker {
+    display: inline-block;
+    white-space: nowrap;
+    animation: tickerScroll 40s linear infinite;
+}
+.ticker-item {
+    display: inline-block;
+    padding: 0 40px;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.ticker-item:hover {
+    color: var(--accent-blue);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+@keyframes tickerScroll {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); } /* Scrolls exactly half its width, revealing the cloned half seamlessly */
+}
