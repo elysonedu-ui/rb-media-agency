@@ -327,13 +327,16 @@ html, body {
 
 /* PORTFOLIO GRID */
 .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
     width: 100%;
     margin-top: 50px;
 }
 .portfolio-card {
+    width: 100%;
+    max-width: 400px;
     background: var(--dark-surface);
     border: 1px solid rgba(28, 111, 248, 0.2);
     border-radius: 12px;
