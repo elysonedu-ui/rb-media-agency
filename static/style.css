@@ -153,6 +153,77 @@ html, body {
     font-weight: 300;
 }
 
+/* COMMAND BANNER (HUMAN VS AI) */
+.command-banner {
+    display: flex;
+    align-items: center;
+    background: var(--dark-surface);
+    border: 1px solid rgba(28, 111, 248, 0.2);
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+.command-banner:hover {
+    border-color: rgba(28, 111, 248, 0.5);
+    box-shadow: 0 10px 40px rgba(28, 111, 248, 0.15);
+    transform: translateY(-5px);
+}
+.command-badge {
+    width: 60px;
+    height: 60px;
+    background: rgba(28, 111, 248, 0.1);
+    border: 1px solid var(--accent-blue);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--accent-blue);
+    font-size: 1.2rem;
+    margin-right: 25px;
+    flex-shrink: 0;
+    box-shadow: inset 0 0 15px rgba(28, 111, 248, 0.2);
+}
+.command-info {
+    flex-grow: 1;
+    padding-right: 20px;
+}
+.command-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    padding: 8px 15px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 30px;
+}
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #25d366; /* Verde online */
+    border-radius: 50%;
+    animation: pulse-green 2s infinite;
+}
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+@media (max-width: 768px) {
+    .command-banner { flex-direction: column; text-align: center; padding: 30px 20px; }
+    .command-badge { margin-right: 0; margin-bottom: 20px; }
+    .command-info { padding-right: 0; margin-bottom: 20px; }
+}
+
 /* CARDS GLASSMORPHISM (Núcleos) */
 .glass-grid {
     display: grid;
