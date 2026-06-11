@@ -325,6 +325,77 @@ html, body {
     color: var(--accent-blue);
 }
 
+/* PORTFOLIO GRID */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    margin-top: 50px;
+}
+.portfolio-card {
+    background: var(--dark-surface);
+    border: 1px solid rgba(28, 111, 248, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s;
+    display: flex;
+    flex-direction: column;
+}
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 15px 40px rgba(28, 111, 248, 0.2);
+}
+.portfolio-img {
+    width: 100%;
+    height: 350px;
+    background-color: #050608;
+    background-size: cover;
+    background-position: top center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+}
+.portfolio-content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.portfolio-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+.portfolio-content p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+.portfolio-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+}
+.portfolio-link:hover {
+    color: #fff;
+}
+@media (max-width: 1024px) {
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .portfolio-grid { grid-template-columns: 1fr; }
+}
+
 /* CRONOGRAMA 30 DIAS */
 .timeline-grid {
     display: grid;
@@ -373,17 +444,17 @@ html, body {
     box-shadow: 0 0 15px rgba(28, 111, 248, 0.1);
 }
 
-/* BACKGROUND GLOW FX (Premium Mesh Gradient) */
-.bg-grid {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+/* GLOBAL GLOW FX (Premium Mesh Gradient) */
+.global-glow {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
     background: 
-        radial-gradient(circle at 15% 20%, rgba(28, 111, 248, 0.35) 0%, transparent 45%),
-        radial-gradient(circle at 85% 80%, rgba(28, 111, 248, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 0% 0%, rgba(28, 111, 248, 0.45) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(28, 111, 248, 0.35) 0%, transparent 50%),
         radial-gradient(circle at 50% 50%, rgba(28, 111, 248, 0.15) 0%, transparent 60%);
-    z-index: -1;
-    filter: blur(60px);
-    opacity: 1;
+    z-index: -999;
+    filter: blur(90px);
+    pointer-events: none;
 }
 
 /* CUSTOM CURSOR */
