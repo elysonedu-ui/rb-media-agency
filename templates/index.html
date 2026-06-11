@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RB MEDIA | Engenharia Web de Elite</title>
+    <title>RB MEDIA | Automação e Engenharia de IA</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,14 +11,14 @@
     
     <link rel="stylesheet" href="/static/style.css">
     
-    <!-- Favicon Premium -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23020202%22/><text x=%2250%22 y=%2265%22 font-family=%22Arial, sans-serif%22 font-size=%2250%22 font-weight=%22bold%22 fill=%22%231c6ff8%22 text-anchor=%22middle%22>RB</text></svg>">
+    <!-- Favicon Premium Blue -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23080a10%22/><text x=%2250%22 y=%2265%22 font-family=%22Arial, sans-serif%22 font-size=%2250%22 font-weight=%22bold%22 fill=%22%231c6ff8%22 text-anchor=%22middle%22>RB</text></svg>">
 </head>
 <body>
     <!-- Preloader / Loading Screen -->
-    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #020202; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.8s ease;">
-        <div style="width: 50px; height: 50px; border: 2px solid rgba(28,111,248,0.2); border-top: 2px solid var(--accent-blue); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
-        <p style="font-family: var(--font-heading); color: var(--accent-blue); letter-spacing: 3px; font-size: 0.9rem; animation: pulse 1.5s infinite;">INICIANDO SISTEMA</p>
+    <div id="preloader">
+        <div class="preloader-spinner"></div>
+        <p style="font-family: var(--font-heading); color: var(--accent-blue); letter-spacing: 3px; font-size: 0.8rem; animation: pulse 1.5s infinite;">SISTEMA RB</p>
     </div>
 
     <!-- Tech Cursors -->
@@ -34,9 +34,9 @@
             <span class="bar"></span>
         </div>
         <div class="nav-links" id="nav-links">
-            <a href="#solucoes" class="nav-link hover-target mobile-close">SOLUÇÕES</a>
+            <a href="#solucoes" class="nav-link hover-target mobile-close">ECOSSISTEMA</a>
+            <a href="#investimento" class="nav-link hover-target mobile-close">INVESTIMENTO</a>
             <a href="#portfolio" class="nav-link hover-target mobile-close">PRODUÇÃO</a>
-            <a href="/sobre" class="nav-link hover-target">SOBRE NÓS</a>
             <a href="#contato" class="btn-glow hover-target mobile-close">INICIAR PROJETO</a>
         </div>
     </nav>
@@ -48,160 +48,149 @@
         <section class="snap-section" id="inicio">
             <div class="bg-grid"></div>
             <div style="z-index: 1;">
-                <h1 class="hero-title" id="hacker-text" data-value="ENGENHARIA WEB">ENGENHARIA WEB</h1>
-                <h1 class="hero-title">DE <span>ELITE</span></h1>
-                <p class="hero-sub fade-up">Não usamos templates. Nós projetamos ecossistemas de vendas, SaaS e plataformas exclusivas para empresas que desejam dominar o mercado.</p>
-                <a href="#solucoes" class="btn-glow hover-target fade-up" style="display: inline-block; font-size: 1rem; padding: 15px 30px;">ACESSAR TECNOLOGIA</a>
+                <h1 class="hero-title" id="hacker-text" data-value="VENDAS NO">VENDAS NO</h1>
+                <h1 class="hero-title"><span>AUTOMÁTICO</span></h1>
+                <p class="hero-sub fade-up">Não crie um site institucional. Contrate um ecossistema inteligente de Agendamento e Inteligência Artificial que trabalha, atende e converte clientes 24 horas por dia para a sua barbearia.</p>
+                <a href="#solucoes" class="btn-glow hover-target fade-up" style="display: inline-block; font-size: 1rem; padding: 15px 30px;">COMO FUNCIONA</a>
             </div>
         </section>
 
-        <!-- 2. SOLUÇÕES SECTION -->
+        <!-- 2. SOLUÇÕES SECTION (O Time de IA) -->
         <section class="snap-section" id="solucoes">
-            <div class="bg-grid" style="opacity: 0.5;"></div>
+            <div class="bg-grid" style="opacity: 0.3;"></div>
             <div style="z-index: 1; width: 100%;">
-                <h2 class="section-title fade-up">NEURO-CONVERSÃO</h2>
+                <h2 class="section-title fade-up">Zero Pausa. <br><span>100% Conversão.</span></h2>
+                <p class="section-subtitle fade-up">Toda a operação da sua barbearia organizada em um ecossistema único. Um time digital que nenhuma equipe humana consegue manter de pé 24 horas.</p>
                 
                 <div class="glass-grid fade-up">
                     <div class="glass-card hover-target">
-                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                        <h3>Performance Bruta</h3>
-                        <p>Nossos sistemas são construídos em Python puro e arquitetura moderna. Velocidade instantânea que impede o seu cliente de abandonar a página.</p>
+                        <span class="nucleo-tag">NÚCLEO 01</span>
+                        <h3>Captação & UX</h3>
+                        <p>O cliente acessa um sistema milimetricamente desenhado com psicologia cognitiva. Rapidez absoluta e design premium que geram autoridade imediata no primeiro clique.</p>
                     </div>
                     <div class="glass-card hover-target">
-                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                        <h3>UX/UI Design</h3>
-                        <p>Aplicamos psicologia cognitiva no design. Cada botão, cada cor e cada espaçamento é milimetricamente calculado para gerar vendas.</p>
+                        <span class="nucleo-tag">NÚCLEO 02</span>
+                        <h3>Agendamento Autônomo</h3>
+                        <p>Esqueça gerenciar agenda na mão. O sistema (SaaS) mostra horários disponíveis, filtra serviços e confirma o cliente sem que você precise mandar uma única mensagem.</p>
                     </div>
                     <div class="glass-card hover-target">
-                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-                        <h3>SaaS & Agendamentos</h3>
-                        <p>Esqueça sistemas engessados. Criamos plataformas exclusivas de agendamento e painéis administrativos para gerenciar sua empresa no automático.</p>
-                    </div>
-                    <div class="glass-card hover-target">
-                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-                        <h3>Automação com IA</h3>
-                        <p>Conectamos seu ecossistema a IAs que atendem clientes no WhatsApp 24/7, agendando serviços e fechando vendas automaticamente.</p>
-                    </div>
-                    <div class="glass-card hover-target">
-                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
-                        <h3>Engenharia de Dados</h3>
-                        <p>Construímos painéis administrativos que mostram lucro, retenção e métricas em tempo real. O verdadeiro controle na palma da mão.</p>
-                    </div>
-                    <div class="glass-card hover-target">
-                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                        <h3>SEO Técnico Estrutural</h3>
-                        <p>Arquitetura programada com o código exato que o algoritmo do Google exige, dominando as buscas da sua região de forma orgânica.</p>
+                        <span class="nucleo-tag">NÚCLEO 03</span>
+                        <h3>Secretária de Inteligência Artificial</h3>
+                        <p>Uma IA treinada conectada ao seu WhatsApp. Ela tira dúvidas de clientes de madrugada, envia o link de agendamento e faz o fechamento da venda para você.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. SHOWCASE/PORTFOLIO SECTION -->
+        <!-- 3. TABELA DE PREÇOS (ANCORAGEM) -->
+        <section class="snap-section" id="investimento">
+            <div class="bg-grid" style="opacity: 0.2;"></div>
+            <div style="z-index: 1; width: 100%;">
+                <span class="nucleo-tag fade-up" style="text-align: center;">A CONTA QUE IMPORTA</span>
+                <h2 class="section-title fade-up" style="text-align: center;">Um time inteiro cabe<br>num <span>investimento só.</span></h2>
+                
+                <div class="pricing-split fade-up">
+                    <div class="pricing-col">
+                        <h3 style="font-family: var(--font-heading); margin-bottom: 25px; font-size: 1rem; color: var(--text-muted);">MONTAR UM TIME INTERNO TRADICIONAL</h3>
+                        <div class="pricing-item"><span>Recepcionista 2x Turnos</span> <span>~R$ 3.500/mês</span></div>
+                        <div class="pricing-item"><span>Desenvolvedor Front-end</span> <span>~R$ 5.000/mês</span></div>
+                        <div class="pricing-item"><span>Gestor de Tráfego / Marketing</span> <span>~R$ 4.000/mês</span></div>
+                        <div class="pricing-item"><span>Assinatura de Software Genérico</span> <span>~R$ 200/mês</span></div>
+                        <div class="pricing-item" style="border: none;"><span>+ encargos, férias e turnover</span> <span>—</span></div>
+                        <div class="pricing-total">
+                            <span style="font-size: 0.8rem; text-transform: uppercase;">Custo Fixo Total Estimado</span>
+                            <h4>R$ 12.700+/mês</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-col highlight">
+                        <h3 style="font-family: var(--font-heading); margin-bottom: 25px; font-size: 1rem; color: var(--accent-blue);">SUA OPERAÇÃO COM A RB MEDIA</h3>
+                        <div class="pricing-item"><span>Ecossistema de Agendamento Próprio</span> <span>INCLUÍDO</span></div>
+                        <div class="pricing-item"><span>Integração de Inteligência Artificial</span> <span>INCLUÍDO</span></div>
+                        <div class="pricing-item"><span>Hospedagem, Segurança e Manutenção</span> <span>INCLUÍDO</span></div>
+                        <div class="pricing-item"><span>Sem turnover, sem encargos, roda 24h</span> <span>INCLUÍDO</span></div>
+                        <div class="pricing-item" style="border: none;"><span>Atendimento técnico VIP</span> <span>INCLUÍDO</span></div>
+                        <div class="pricing-total">
+                            <span style="font-size: 0.8rem; text-transform: uppercase;">Investimento Único + Licença</span>
+                            <h4>Fale Conosco</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CRONOGRAMA DE IMPLEMENTAÇÃO -->
+        <section class="snap-section" id="cronograma" style="padding-top: 50px; min-height: 50vh;">
+            <div style="z-index: 1; width: 100%;">
+                <h2 class="section-title fade-up" style="margin-bottom: 10px;">Seus primeiros <span>30 dias.</span></h2>
+                <p class="section-subtitle fade-up">Nada de "confie e espere". Você sabe exatamente o que acontece desde o primeiro dia — e recebe entrega em cada etapa.</p>
+                
+                <div class="timeline-grid fade-up">
+                    <div class="timeline-item">
+                        <span class="timeline-date">DIA 1 A 3</span>
+                        <h4 class="timeline-title">Diagnóstico</h4>
+                        <p class="timeline-desc">Análise profunda da identidade visual da sua barbearia, definição de paleta de cores e fluxo de caixa.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">DIA 4 A 7</span>
+                        <h4 class="timeline-title">Engenharia Web</h4>
+                        <p class="timeline-desc">Nossa equipe programa do zero o seu motor de vendas e plataforma de agendamento na nuvem.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">SEMANA 2</span>
+                        <h4 class="timeline-title">Implementação de IA</h4>
+                        <p class="timeline-desc">Conexão dos robôs de inteligência artificial com o seu painel de agendamento e WhatsApp.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">SEMANA 3 E 4</span>
+                        <h4 class="timeline-title">Lançamento</h4>
+                        <p class="timeline-desc">Sistema no ar rodando sem falhas. Treinamento da sua equipe para usar o painel administrativo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. PORTFOLIO SECTION -->
         <section class="snap-section" id="portfolio" style="background: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover fixed;">
-            <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(180deg, #020202 0%, rgba(2,2,2,0.85) 50%, #020202 100%);"></div>
+            <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(180deg, #080a10 0%, rgba(8,10,16,0.85) 50%, #080a10 100%);"></div>
             
             <div class="showcase-container fade-up" style="z-index: 1; position: relative;">
-                <h2 style="font-size: 3vw;">VEJA A MÁQUINA<br>EM <span>PRODUÇÃO</span></h2>
-                <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto 10px auto;">
-                    Acesse um dos nossos motores de agendamento operando ao vivo.
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-family: var(--font-heading); margin-bottom: 20px;">VEJA A MÁQUINA<br>EM <span>PRODUÇÃO</span></h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 10px auto;">
+                    Acesse o IMPERIUM. Nosso motor de agendamento operando ao vivo.
                 </p>
-                
-                <div class="devices-showcase hover-target">
-                    <!-- CSS Tablet -->
-                    <div class="css-tablet">
-                        <div class="css-tablet-screen" style="background: url('/static/dashboard.png') center/cover no-repeat; padding:0;">
-                        </div>
-                    </div>
-                    <!-- CSS Phone -->
-                    <div class="css-phone">
-                        <div class="phone-notch" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 10;"></div>
-                        <div class="css-phone-screen" style="background: url('/static/dashboard.png') left center/cover no-repeat; padding:0;">
-                        </div>
-                    </div>
-                </div>
-
-                <a href="https://imperium-barber-engine.onrender.com" target="_blank" class="btn-glow hover-target" style="padding: 15px 40px; font-size: 1.1rem; border-width: 2px; background: #020202;">ACESSAR IMPERIUM BARBER ENGINE</a>
+                <br>
+                <a href="https://imperium-barber-engine.onrender.com" target="_blank" class="btn-glow hover-target" style="padding: 15px 40px; font-size: 1rem; border-width: 1px; background: rgba(8,10,16,0.8);">ACESSAR IMPERIUM ENGINE</a>
             </div>
         </section>
 
-        <!-- 4. FAQ SECTION -->
-        <section class="snap-section" id="faq">
-            <div class="bg-grid" style="opacity: 0.3;"></div>
-            <div style="z-index: 1; width: 100%; text-align: center; margin-bottom: 50px;">
-                <h2 style="font-size: 3vw;" class="fade-up">INTELIGÊNCIA <br><span>OPERACIONAL</span></h2>
-                <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;" class="fade-up">
-                    Respostas diretas para as dúvidas mais frequentes de nossos parceiros de alto nível.
-                </p>
-            </div>
-            
-            <div class="faq-container fade-up" style="z-index: 1;">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Vocês fazem apenas "sites institucionais"? <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p><strong>Não.</strong> Nós não criamos panfletos digitais. Nossa especialidade é Engenharia de Software focada em conversão. Criamos Ecossistemas completos: plataformas de agendamento (SaaS), integrações de Inteligência Artificial para WhatsApp e Dashboards financeiros robustos.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Qual é o prazo médio de entrega de um sistema? <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Tempo é dinheiro. Utilizamos metodologias ágeis e arquiteturas modernas (Python/React) para garantir entregas estruturais em um prazo médio de <strong>15 a 30 dias</strong>, dependendo da complexidade das integrações (ex: robôs de IA ou automação de pagamentos).</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Já tenho equipe de marketing. Vocês a substituem? <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p><strong>De forma alguma.</strong> Nós somos o "braço armado" da tecnologia. Se você já tem quem faça anúncios e crie artes, nós fornecemos a <strong>Máquina de Engenharia</strong> (sites ultra-rápidos, SEO Técnico e Funis automatizados) para que a sua equipe atual multiplique as vendas por 10x.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Os sistemas são otimizados para Mobile (Celular)? <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Mais do que isso. Nossos sistemas são desenvolvidos sob o conceito <em>Mobile-First</em>. Sabendo que 85% do tráfego de alta conversão vem de smartphones, nós aplicamos Psicologia Cognitiva no design para que cada botão esteja milimetricamente posicionado no polegar do seu cliente.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. CONTATO SECTION -->
+        <!-- 6. CONTATO SECTION -->
         <section class="snap-section" id="contato">
-            <div class="bg-grid" style="opacity: 0.5;"></div>
+            <div class="bg-grid" style="opacity: 0.3;"></div>
             
-            <div class="contact-split fade-up" style="z-index: 1; width: 100%; max-width: 1100px; margin: 0 auto;">
-                <div class="contact-image-area">
-                    <div class="contact-image-overlay"></div>
+            <div class="contact-split fade-up" style="z-index: 1; width: 100%; max-width: 1100px; margin: 0 auto; background: var(--dark-surface); border-radius: 8px; border: 1px solid rgba(28, 111, 248, 0.2); overflow: hidden; display: grid; grid-template-columns: 1fr 1fr;">
+                <div style="padding: 60px; display: flex; flex-direction: column; justify-content: center;">
+                    <span class="nucleo-tag">NO COMANDO</span>
+                    <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 15px;">Fale diretamente<br>conosco.</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 30px; line-height: 1.6;">Nossos sistemas rodam 24h. Mas quem fecha os contratos, define a estratégia e constrói o software somos nós. Atendimento direto e sem burocracia.</p>
+                    <a href="https://wa.me/5511914433981" target="_blank" class="btn-glow" style="width: fit-content; border-color: #25d366; color: #25d366;">
+                        CHAMAR NO WHATSAPP
+                    </a>
                 </div>
-                <div class="contact-form-area">
-                    <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 10px;">AUDITORIA DE SISTEMA</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 40px;">Solicite uma análise técnica e descubra como podemos automatizar sua empresa.</p>
-                    
+                <div style="padding: 60px; background: rgba(255,255,255,0.02); border-left: 1px solid rgba(255,255,255,0.05);">
+                    <h3 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 20px;">INICIAR AUDITORIA</h3>
                     <form id="lead-form">
-                        <label style="display: block; font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 5px; font-family: var(--font-heading);">NOME DO RESPONSÁVEL</label>
-                        <input type="text" id="nome" class="form-input hover-target" required placeholder="Ex: João Silva">
+                        <input type="text" id="nome" class="form-input hover-target" required placeholder="Nome do Responsável">
+                        <input type="text" id="empresa" class="form-input hover-target" required placeholder="Nome da Barbearia">
+                        <input type="text" id="telefone" class="form-input hover-target" required placeholder="WhatsApp">
                         
-                        <label style="display: block; font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 5px; font-family: var(--font-heading);">EMPRESA / PROJETO</label>
-                        <input type="text" id="empresa" class="form-input hover-target" required placeholder="Ex: Barbearia Elite">
-                        
-                        <label style="display: block; font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 5px; font-family: var(--font-heading);">WHATSAPP DIRETO</label>
-                        <input type="text" id="telefone" class="form-input hover-target" required placeholder="DDD + Número">
-                        
-                        <button type="submit" class="btn-glow hover-target" style="width: 100%; border: none; padding: 20px; font-size: 1rem; background: rgba(28,111,248,0.1); border: 1px solid var(--accent-blue); margin-top: 10px;">INICIAR PROTOCOLO DE ANÁLISE</button>
+                        <button type="submit" class="btn-glow hover-target" style="width: 100%; border: none; padding: 20px; font-size: 1rem; background: rgba(28, 111, 248, 0.1); border: 1px solid var(--accent-blue);">ENVIAR SOLICITAÇÃO</button>
                     </form>
                 </div>
             </div>
             
-            <footer style="position: absolute; bottom: 20px; width: 100%; text-align: center; color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-heading);">
-                &copy; 2026 RB MEDIA. ALL SYSTEMS NOMINAL.
+            <footer style="position: absolute; bottom: 30px; width: 100%; text-align: center; color: var(--text-muted); font-size: 0.7rem; font-family: var(--font-heading); letter-spacing: 2px;">
+                &copy; 2026 RB MEDIA. ENGENHARIA DE SOFTWARE.
             </footer>
         </section>
 
@@ -215,63 +204,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script>
-        // --- PRELOADER & PAGE TRANSITIONS ---
+        // --- PRELOADER ---
         window.addEventListener('load', function() {
-            // Se tiver um # na URL (ex: index.html#contato), não força pro topo
-            if (!window.location.hash) {
-                window.scrollTo(0, 0);
-            }
-            
+            if (!window.location.hash) { window.scrollTo(0, 0); }
             setTimeout(() => {
                 const preloader = document.getElementById('preloader');
                 preloader.style.opacity = '0';
                 setTimeout(() => {
                     preloader.style.display = 'none';
                     animateHackerText();
-                    
-                    // Se tiver hash, usa o lenis pra rolar até lá suavemente depois que carregar
-                    if (window.location.hash) {
-                        lenis.scrollTo(document.querySelector(window.location.hash));
-                    }
+                    if (window.location.hash) { lenis.scrollTo(document.querySelector(window.location.hash)); }
                 }, 800);
             }, 500); 
         });
 
-        // Intercepta cliques para outras páginas e faz transição
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if(!href) return;
-                
-                // Se for um link de âncora na MESMA PÁGINA (ex: #contato), Lenis cuida.
-                if(href.startsWith('#')) {
-                    e.preventDefault();
-                    lenis.scrollTo(document.querySelector(href));
-                    return;
-                }
-                // Se for um link para outra página do nosso site (ex: /sobre)
-                if(href.startsWith('/') && !href.includes('#')) {
-                    e.preventDefault();
-                    const preloader = document.getElementById('preloader');
-                    preloader.style.display = 'flex';
-                    void preloader.offsetWidth; // Força reflow
-                    preloader.style.opacity = '1';
-                    setTimeout(() => {
-                        window.location.href = href;
-                    }, 500);
-                }
-            });
-        });
-
-        // --- HIDE LOGO ON SCROLL (KEEP LINKS) ---
-        const navLogo = document.querySelector('.nav-logo');
+        // --- HIDE LOGO ON SCROLL ---
+        const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navLogo.style.opacity = '0';
-                navLogo.style.pointerEvents = 'none';
+                navbar.classList.add('scrolled');
             } else {
-                navLogo.style.opacity = '1';
-                navLogo.style.pointerEvents = 'auto';
+                navbar.classList.remove('scrolled');
             }
         });
 
@@ -294,7 +247,12 @@
         }
 
         // --- LENIS SMOOTH SCROLL ---
-        const lenis = new Lenis({ duration: 1.2, smooth: true });
+        const lenis = new Lenis({ 
+            duration: 1.5, 
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+            wheelMultiplier: 1.2,
+            smoothTouch: false
+        });
         function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
 
@@ -306,21 +264,16 @@
         let ringX = 0, ringY = 0;
         
         document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            // Dot follows instantly
-            cursorDot.style.transform = `translate(${mouseX - 5}px, ${mouseY - 5}px)`;
+            mouseX = e.clientX; mouseY = e.clientY;
+            cursorDot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
         });
         
-        // Ring follows with lerp (delay)
         gsap.ticker.add(() => {
             ringX += (mouseX - ringX) * 0.15;
             ringY += (mouseY - ringY) * 0.15;
-            cursorRing.style.transform = `translate(${ringX - 20}px, ${ringY - 20}px)`;
+            cursorRing.style.transform = `translate(${ringX - 17.5}px, ${ringY - 17.5}px)`;
         });
 
-        // Hover effects
         document.querySelectorAll('.hover-target').forEach(el => {
             el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
             el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
@@ -329,35 +282,23 @@
         // --- HACKER TEXT DECODE ANIMATION ---
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         const hackerText = document.getElementById("hacker-text");
-        
         let interval = null;
         
         function animateHackerText() {
             let iteration = 0;
             clearInterval(interval);
-            
             interval = setInterval(() => {
                 hackerText.innerText = hackerText.innerText
-                    .split("")
-                    .map((letter, index) => {
-                        if(index < iteration) {
-                            return hackerText.dataset.value[index];
-                        }
+                    .split("").map((letter, index) => {
+                        if(index < iteration) return hackerText.dataset.value[index];
                         return letters[Math.floor(Math.random() * 26)];
-                    })
-                    .join("");
-                
-                if(iteration >= hackerText.dataset.value.length){ 
-                    clearInterval(interval);
-                }
+                    }).join("");
+                if(iteration >= hackerText.dataset.value.length) clearInterval(interval);
                 iteration += 1 / 3;
             }, 30);
         }
-        
-        // Não roda o hacker animation direto aqui mais, roda no load do preloader
-        // window.addEventListener('load', animateHackerText);
 
-        // --- FADE UP OBSERVER FOR SECTIONS ---
+        // --- FADE UP OBSERVER ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if(entry.isIntersecting) {
@@ -366,70 +307,36 @@
                         { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
                     );
                     observer.unobserve(entry.target);
-                    
-                    // Trigger hacker text again if it's the hero section
-                    if(entry.target.id === 'hacker-text') {
-                        animateHackerText();
-                    }
+                    if(entry.target.id === 'hacker-text') animateHackerText();
                 }
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.fade-up').forEach((el) => {
-            observer.observe(el);
-        });
-
-        // --- FAQ ACCORDION LOGIC ---
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const btn = item.querySelector('.faq-question');
-            btn.addEventListener('click', () => {
-                // Fechar outros abertos
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-                // Toggle o atual
-                item.classList.toggle('active');
-            });
-        });
+        document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
 
         // --- FORM SAVE TO SPREADSHEET (CSV) ---
         document.getElementById('lead-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Dados capturados
             const nomeStr = document.getElementById('nome').value;
             const empresaStr = document.getElementById('empresa').value;
             const telStr = document.getElementById('telefone').value;
 
-            // Mostra a tela de Loading / Sucesso IMEDIATAMENTE pro usuário não ficar esperando
-            const formArea = document.querySelector('.contact-form-area');
+            const formArea = document.querySelector('#lead-form').parentElement;
             formArea.innerHTML = `
-                <div style="text-align: center; padding: 60px 20px; animation: pulse 2s infinite;">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                    <h2 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 15px;">PROTOCOLO INICIADO</h2>
-                    <p style="color: var(--text-muted); line-height: 1.6;">Seus dados foram processados com segurança. Entraremos em contato em breve.</p>
+                <div style="text-align: center; padding: 40px 20px; animation: pulse 2s infinite;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 15px; color: var(--accent-blue);">SOLICITAÇÃO ENVIADA</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6;">Nossa equipe recebeu seus dados e fará contato em breve.</p>
                 </div>
             `;
 
-            // Envia silenciosamente para o E-mail usando FormSubmit
             fetch('https://formsubmit.co/ajax/rbmediaofficial08@gmail.com', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    Nome: nomeStr,
-                    Empresa: empresaStr,
-                    WhatsApp: telStr,
-                    Assunto: "NOVO LEAD - RB MEDIA AGENCY"
-                })
-            }).catch(error => console.log('Erro ao enviar email:', error));
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({ Nome: nomeStr, Empresa: empresaStr, WhatsApp: telStr, Assunto: "LEAD - RB MEDIA IA" })
+            }).catch(error => console.log('Erro FormSubmit:', error));
             
-            // Tenta salvar localmente no CSV só como redundância
             fetch('/contato', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
